@@ -70,3 +70,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+a:hover,
+button:hover {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}

@@ -1,7 +1,27 @@
-import type { Metadata } from "next"
-import { Button, Card, Heading, Text, Flex, Box, Container, Section, Grid, Badge } from "@radix-ui/themes"
-import { Code2, ExternalLink, ArrowRight, Globe, Smartphone, Database, Cloud } from "lucide-react"
-import Link from "next/link"
+import {
+  ArrowRight,
+  Cloud,
+  Code2,
+  Database,
+  ExternalLink,
+  Globe,
+  Smartphone,
+} from "lucide-react";
+import {
+  Badge,
+  Box,
+  Button,
+  Card,
+  Container,
+  Flex,
+  Grid,
+  Heading,
+  Section,
+  Text,
+} from "@radix-ui/themes";
+
+import Link from "next/link";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Our Work - Software Development Portfolio | Restacked, LLC",
@@ -15,7 +35,7 @@ export const metadata: Metadata = {
       "Discover our portfolio of innovative web and mobile applications built for startups and enterprises across various industries.",
     type: "website",
   },
-}
+};
 
 const projects = [
   {
@@ -39,7 +59,12 @@ const projects = [
     technologies: ["Next.js", "TypeScript", "MongoDB", "Stripe", "Vercel"],
     category: "Enterprise Solution",
     icon: Database,
-    features: ["HIPAA compliant", "Patient portal", "Appointment scheduling", "Prescription management"],
+    features: [
+      "HIPAA compliant",
+      "Patient portal",
+      "Appointment scheduling",
+      "Prescription management",
+    ],
   },
   {
     title: "E-Learning Mobile App",
@@ -48,7 +73,12 @@ const projects = [
     technologies: ["React Native", "Firebase", "Node.js", "AWS S3", "Stripe"],
     category: "Mobile Application",
     icon: Smartphone,
-    features: ["Offline content access", "Progress tracking", "Video streaming", "In-app purchases"],
+    features: [
+      "Offline content access",
+      "Progress tracking",
+      "Video streaming",
+      "In-app purchases",
+    ],
   },
   {
     title: "Supply Chain Analytics",
@@ -57,15 +87,26 @@ const projects = [
     technologies: ["Vue.js", "Python", "PostgreSQL", "Docker", "Kubernetes"],
     category: "Enterprise Solution",
     icon: Cloud,
-    features: ["Predictive analytics", "Real-time monitoring", "Custom dashboards", "API integrations"],
+    features: [
+      "Predictive analytics",
+      "Real-time monitoring",
+      "Custom dashboards",
+      "API integrations",
+    ],
   },
   {
     title: "Social Commerce Platform",
-    description: "Social media integrated e-commerce platform with influencer marketing tools and advanced analytics.",
+    description:
+      "Social media integrated e-commerce platform with influencer marketing tools and advanced analytics.",
     technologies: ["React", "GraphQL", "Node.js", "Redis", "AWS"],
     category: "Web Application",
     icon: Globe,
-    features: ["Social media integration", "Influencer tools", "Advanced analytics", "Multi-vendor support"],
+    features: [
+      "Social media integration",
+      "Influencer tools",
+      "Advanced analytics",
+      "Multi-vendor support",
+    ],
   },
   {
     title: "IoT Fleet Management",
@@ -74,58 +115,36 @@ const projects = [
     technologies: ["Angular", "Node.js", "MongoDB", "MQTT", "Google Cloud"],
     category: "Enterprise Solution",
     icon: Database,
-    features: ["Real-time GPS tracking", "Maintenance alerts", "Driver behavior analysis", "Route optimization"],
+    features: [
+      "Real-time GPS tracking",
+      "Maintenance alerts",
+      "Driver behavior analysis",
+      "Route optimization",
+    ],
   },
-]
+];
 
 export default function WorkPage() {
   return (
     <Box className="min-h-screen">
-      {/* Header */}
-      <Box className="border-b border-[hsl(var(--border))]">
-        <Container size="4">
-          <Flex align="center" justify="between" py="4">
-            <Flex align="center" gap="2">
-              <Link href="/" className="flex items-center gap-2">
-                <Box className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <Code2 className="w-5 h-5 text-white" />
-                </Box>
-                <Text size="5" weight="bold" className="text-foreground">
-                  Restacked, LLC
-                </Text>
-              </Link>
-            </Flex>
-            <Flex align="center" gap="6" className="hidden md:flex">
-              <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">
-                Services
-              </Link>
-              <Link href="/work" className="text-primary font-medium">
-                Work
-              </Link>
-              <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
-                About
-              </Link>
-              <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
-                Contact
-              </Link>
-            </Flex>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
-              <Link href="/contact">Get Started</Link>
-            </Button>
-          </Flex>
-        </Container>
-      </Box>
-
       {/* Hero Section */}
-      <Section className="py-20 bg-gradient-to-br from-background to-muted">
+      <Section className="py-20 bg-primary/10">
         <Container size="4">
-          <Flex direction="column" align="center" className="max-w-4xl mx-auto text-center">
+          <Flex
+            direction="column"
+            align="center"
+            className="max-w-4xl mx-auto text-center"
+          >
             <Heading size="9" className="text-foreground mb-6 leading-tight">
               Our <span className="text-primary">Portfolio</span>
             </Heading>
-            <Text size="6" className="text-muted-foreground mb-10 max-w-3xl leading-relaxed">
-              Explore our successful projects across various industries. From startups to enterprise solutions, we've
-              delivered innovative software that drives business growth.
+            <Text
+              size="6"
+              className="text-muted-foreground mb-10 max-w-3xl leading-relaxed"
+            >
+              Explore our successful projects across various industries. From
+              startups to enterprise solutions, we've delivered innovative
+              software that drives business growth.
             </Text>
           </Flex>
         </Container>
@@ -134,12 +153,19 @@ export default function WorkPage() {
       {/* Portfolio Grid */}
       <Section className="py-20">
         <Container size="4">
-          <Grid columns={{ initial: "1", md: "2" }} gap="8" className="max-w-6xl mx-auto">
+          <Grid
+            columns={{ initial: "1", md: "2" }}
+            gap="8"
+            className="max-w-6xl mx-auto"
+          >
             {projects.map((project, index) => (
-              <Card key={index} className="p-8 hover:shadow-lg transition-shadow">
-                <Flex direction="column" height="100%">
+              <Card
+                key={index}
+                className="p-8 hover:shadow-lg transition-shadow"
+              >
+                <Flex direction="column" height="100%" p="4">
                   <Flex align="center" justify="between" className="mb-4">
-                    <Box className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <Box className="p-3 bg-primary/10 rounded-full flex items-center justify-center">
                       <project.icon className="w-6 h-6 text-primary" />
                     </Box>
                     <Badge color="blue" variant="soft">
@@ -151,15 +177,25 @@ export default function WorkPage() {
                     {project.title}
                   </Heading>
 
-                  <Text className="text-muted-foreground mb-6 leading-relaxed flex-grow">{project.description}</Text>
+                  <Text className="text-muted-foreground mb-6 leading-relaxed flex-grow">
+                    {project.description}
+                  </Text>
 
                   <Box className="mb-6">
-                    <Text size="2" weight="medium" className="text-foreground mb-3">
+                    <Text
+                      size="2"
+                      weight="medium"
+                      className="text-foreground mb-3"
+                    >
                       Key Features:
                     </Text>
                     <Grid columns="1" gap="2">
                       {project.features.map((feature, featureIndex) => (
-                        <Text key={featureIndex} size="2" className="text-muted-foreground">
+                        <Text
+                          key={featureIndex}
+                          size="2"
+                          className="text-muted-foreground"
+                        >
                           • {feature}
                         </Text>
                       ))}
@@ -167,7 +203,11 @@ export default function WorkPage() {
                   </Box>
 
                   <Box className="mb-6">
-                    <Text size="2" weight="medium" className="text-foreground mb-3">
+                    <Text
+                      size="2"
+                      weight="medium"
+                      className="text-foreground mb-3"
+                    >
                       Technologies:
                     </Text>
                     <Flex wrap="wrap" gap="2">
@@ -179,7 +219,7 @@ export default function WorkPage() {
                     </Flex>
                   </Box>
 
-                  <Button variant="outline" className="mt-auto bg-transparent" asChild>
+                  <Button variant="outline" asChild>
                     <Link href="/contact">
                       Discuss Similar Project
                       <ExternalLink className="ml-2 w-4 h-4" />
@@ -193,7 +233,7 @@ export default function WorkPage() {
       </Section>
 
       {/* Process Section */}
-      <Section className="py-20 bg-muted">
+      <Section className="py-20 bg-primary/10">
         <Container size="4">
           <Flex direction="column" align="center" className="text-center mb-16">
             <Heading size="8" className="text-foreground mb-4">
@@ -204,9 +244,13 @@ export default function WorkPage() {
             </Text>
           </Flex>
 
-          <Grid columns={{ initial: "1", md: "4" }} gap="6" className="max-w-6xl mx-auto">
+          <Grid
+            columns={{ initial: "1", md: "4" }}
+            gap="6"
+            className="max-w-6xl mx-auto"
+          >
             <Card className="p-6 text-center">
-              <Box className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Box className="p-3 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Text weight="bold" className="text-primary">
                   1
                 </Text>
@@ -215,12 +259,13 @@ export default function WorkPage() {
                 Discovery
               </Heading>
               <Text size="2" className="text-muted-foreground">
-                Understanding your business goals, requirements, and technical constraints
+                Understanding your business goals, requirements, and technical
+                constraints
               </Text>
             </Card>
 
             <Card className="p-6 text-center">
-              <Box className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Box className="p-3 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Text weight="bold" className="text-primary">
                   2
                 </Text>
@@ -229,12 +274,13 @@ export default function WorkPage() {
                 Design
               </Heading>
               <Text size="2" className="text-muted-foreground">
-                Creating user-centered designs and technical architecture blueprints
+                Creating user-centered designs and technical architecture
+                blueprints
               </Text>
             </Card>
 
             <Card className="p-6 text-center">
-              <Box className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Box className="p-3 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Text weight="bold" className="text-primary">
                   3
                 </Text>
@@ -243,12 +289,13 @@ export default function WorkPage() {
                 Development
               </Heading>
               <Text size="2" className="text-muted-foreground">
-                Agile development with regular updates and continuous integration
+                Agile development with regular updates and continuous
+                integration
               </Text>
             </Card>
 
             <Card className="p-6 text-center">
-              <Box className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Box className="p-3 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Text weight="bold" className="text-primary">
                   4
                 </Text>
@@ -267,19 +314,22 @@ export default function WorkPage() {
       {/* CTA Section */}
       <Section className="py-20 bg-primary">
         <Container size="4">
-          <Flex direction="column" align="center" className="max-w-4xl mx-auto text-center text-white">
+          <Flex
+            direction="column"
+            align="center"
+            className="max-w-4xl mx-auto text-center text-white"
+          >
             <Heading size="8" className="text-primary-foreground mb-6">
               Ready to Start Your Project?
             </Heading>
-            <Text size="5" className="text-primary-foreground/90 mb-8 max-w-2xl">
-              Let's discuss your vision and create a custom solution that exceeds your expectations.
-            </Text>
-            <Button
-              size="4"
-              variant="outline"
-              className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-              asChild
+            <Text
+              size="5"
+              className="text-primary-foreground/90 mb-8 max-w-2xl"
             >
+              Let's discuss your vision and create a custom solution that
+              exceeds your expectations.
+            </Text>
+            <Button size="4" asChild>
               <Link href="/contact">
                 Start Your Project
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -289,5 +339,5 @@ export default function WorkPage() {
         </Container>
       </Section>
     </Box>
-  )
+  );
 }
