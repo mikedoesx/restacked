@@ -77,7 +77,12 @@ export default function LandingPage() {
       <Section className="bg-primary px-4 text-center">
         <Container size="4">
           <Grid columns={{ initial: "1", md: "3" }} gap="6">
-            <Flex direction="column" align="center" className="max-w-xs">
+            <Flex
+              direction="column"
+              align="center"
+              justify={"center"}
+              className={"max-w-xs mx-auto"}
+            >
               <Zap className="w-12 h-12 mb-4 text-primary-foreground/70" />
               <Heading size="5" className="text-primary-foreground mb-2">
                 Lightning Fast
@@ -86,7 +91,12 @@ export default function LandingPage() {
                 Rapid development cycles without compromising quality
               </Text>
             </Flex>
-            <Flex direction="column" align="center" className="max-w-xs">
+            <Flex
+              direction="column"
+              align="center"
+              justify={"center"}
+              className={"max-w-xs mx-auto"}
+            >
               <Shield className="w-12 h-12 mb-4 text-primary-foreground/70" />
               <Heading size="5" className="text-primary-foreground mb-2">
                 Enterprise Security
@@ -95,7 +105,12 @@ export default function LandingPage() {
                 Bank-grade security and compliance standards
               </Text>
             </Flex>
-            <Flex direction="column" align="center" className="max-w-xs">
+            <Flex
+              direction="column"
+              align="center"
+              justify={"center"}
+              className={"max-w-xs mx-auto"}
+            >
               <CheckCircle className="w-12 h-12 mb-4 text-primary-foreground/70" />
               <Heading size="5" className="text-primary-foreground mb-2">
                 Proven Results
