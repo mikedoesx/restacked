@@ -31,9 +31,9 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <Box className="min-h-screen">
+    <>
       {/* Hero Section */}
-      <Section className="py-20 bg-primary/10">
+      <Section className="py-20 bg-primary/10 p-4">
         <Container size="4">
           <Flex
             direction="column"
@@ -56,7 +56,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Contact Form & Info */}
-      <Section className="py-20">
+      <Section className="py-20 p-4">
         <Container size="4">
           <Grid
             columns={{ initial: "1", lg: "3" }}
@@ -278,7 +278,7 @@ export default function ContactPage() {
       </Section>
 
       {/* FAQ Section */}
-      <Section className="py-20 bg-primary/10">
+      <Section className="py-20 bg-primary/10 p-4">
         <Container size="4">
           <Flex direction="column" align="center" className="text-center mb-16">
             <Heading size="8" className="text-foreground mb-4">
@@ -341,6 +341,6 @@ export default function ContactPage() {
           </Grid>
         </Container>
       </Section>
-    </Box>
+    </>
   );
 }

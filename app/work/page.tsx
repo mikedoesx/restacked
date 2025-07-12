@@ -125,9 +125,9 @@ const projects = [
 
 export default function WorkPage() {
   return (
-    <Box className="min-h-screen">
+    <>
       {/* Hero Section */}
-      <Section className="py-20 bg-primary/10">
+      <Section className="py-20 bg-primary/10 px-4">
         <Container size="4">
           <Flex
             direction="column"
@@ -150,7 +150,7 @@ export default function WorkPage() {
       </Section>
 
       {/* Portfolio Grid */}
-      <Section className="py-20">
+      <Section className="py-20 px-4">
         <Container size="4">
           <Grid
             columns={{ initial: "1", md: "2" }}
@@ -164,7 +164,7 @@ export default function WorkPage() {
               >
                 <Flex direction="column" height="100%" p="4">
                   <Flex align="center" justify="between" className="mb-4">
-                    <Box className="p-3 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Box className="p-3 bg-primary/10 rounded-lg flex items-center justify-center">
                       <project.icon className="w-6 h-6 text-primary" />
                     </Box>
                     <Badge color="blue" variant="soft">
@@ -232,7 +232,7 @@ export default function WorkPage() {
       </Section>
 
       {/* Process Section */}
-      <Section className="py-20 bg-primary/10">
+      <Section className="py-20 bg-primary/10 px-4">
         <Container size="4">
           <Flex direction="column" align="center" className="text-center mb-16">
             <Heading size="8" className="text-foreground mb-4">
@@ -249,69 +249,57 @@ export default function WorkPage() {
             className="max-w-6xl mx-auto"
           >
             <Card className="p-6 text-center">
-              <Box className="p-3 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Text weight="bold" className="text-primary">
-                  1
+              <div className="p-4">
+                <Heading size="4" className="text-foreground mb-3">
+                  Discovery
+                </Heading>
+                <Text size="2" className="text-muted-foreground">
+                  Understanding your business goals, requirements, and technical
+                  constraints
                 </Text>
-              </Box>
-              <Heading size="4" className="text-foreground mb-3">
-                Discovery
-              </Heading>
-              <Text size="2" className="text-muted-foreground">
-                Understanding your business goals, requirements, and technical
-                constraints
-              </Text>
+              </div>
             </Card>
 
             <Card className="p-6 text-center">
-              <Box className="p-3 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Text weight="bold" className="text-primary">
-                  2
+              <div className="p-4">
+                <Heading size="4" className="text-foreground mb-3">
+                  Design
+                </Heading>
+                <Text size="2" className="text-muted-foreground">
+                  Creating user-centered designs and technical architecture
+                  blueprints
                 </Text>
-              </Box>
-              <Heading size="4" className="text-foreground mb-3">
-                Design
-              </Heading>
-              <Text size="2" className="text-muted-foreground">
-                Creating user-centered designs and technical architecture
-                blueprints
-              </Text>
+              </div>
             </Card>
 
             <Card className="p-6 text-center">
-              <Box className="p-3 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Text weight="bold" className="text-primary">
-                  3
+              <div className="p-4">
+                <Heading size="4" className="text-foreground mb-3">
+                  Development
+                </Heading>
+                <Text size="2" className="text-muted-foreground">
+                  Agile development with regular updates and continuous
+                  integration
                 </Text>
-              </Box>
-              <Heading size="4" className="text-foreground mb-3">
-                Development
-              </Heading>
-              <Text size="2" className="text-muted-foreground">
-                Agile development with regular updates and continuous
-                integration
-              </Text>
+              </div>
             </Card>
 
             <Card className="p-6 text-center">
-              <Box className="p-3 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Text weight="bold" className="text-primary">
-                  4
+              <div className="p-4">
+                <Heading size="4" className="text-foreground mb-3">
+                  Deployment
+                </Heading>
+                <Text size="2" className="text-muted-foreground">
+                  Seamless deployment with ongoing support and maintenance
                 </Text>
-              </Box>
-              <Heading size="4" className="text-foreground mb-3">
-                Deployment
-              </Heading>
-              <Text size="2" className="text-muted-foreground">
-                Seamless deployment with ongoing support and maintenance
-              </Text>
+              </div>
             </Card>
           </Grid>
         </Container>
       </Section>
 
       {/* CTA Section */}
-      <Section className="py-20 bg-primary">
+      <Section className="py-20 bg-primary px-4">
         <Container size="4">
           <Flex
             direction="column"
@@ -337,6 +325,6 @@ export default function WorkPage() {
           </Flex>
         </Container>
       </Section>
-    </Box>
+    </>
   );
 }

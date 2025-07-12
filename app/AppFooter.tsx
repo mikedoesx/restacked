@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const AppFooter = () => {
   return (
-    <Box className="bg-secondary text-secondary-foreground py-12">
+    <Box className="bg-secondary text-secondary-foreground py-12 px-4">
       <Container size="4">
         <Grid columns={{ initial: "1", md: "4" }} gap="6">
           <Flex direction="column" gap="4" className="md:col-span-2">

@@ -37,9 +37,9 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <Box className="min-h-screen">
+    <>
       {/* Hero Section */}
-      <Section className="py-20 bg-primary/10">
+      <Section className="py-20 bg-primary/10 p-4">
         <Container size="4">
           <Flex
             direction="column"
@@ -62,7 +62,7 @@ export default function ServicesPage() {
       </Section>
 
       {/* Services Overview */}
-      <Section className="py-20">
+      <Section className="py-20 p-4">
         <Container size="4">
           <Grid
             columns={{ initial: "1", md: "2" }}
@@ -71,7 +71,7 @@ export default function ServicesPage() {
           >
             <Card className="p-8 hover:shadow-lg transition-shadow">
               <Flex direction="column" p="4">
-                <Box className="p-3 w-fit bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                   <Globe className="w-8 h-8 text-primary" />
                 </Box>
                 <Heading size="6" className="text-foreground mb-4">
@@ -105,7 +105,7 @@ export default function ServicesPage() {
 
             <Card className="p-8 hover:shadow-lg transition-shadow">
               <Flex direction="column" p="4">
-                <Box className="p-3 w-fit bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                   <Smartphone className="w-8 h-8 text-primary" />
                 </Box>
                 <Heading size="6" className="text-foreground mb-4">
@@ -139,7 +139,7 @@ export default function ServicesPage() {
 
             <Card className="p-8 hover:shadow-lg transition-shadow">
               <Flex direction="column" p="4">
-                <Box className="p-3 w-fit bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                   <Users className="w-8 h-8 text-primary" />
                 </Box>
                 <Heading size="6" className="text-foreground mb-4">
@@ -173,7 +173,7 @@ export default function ServicesPage() {
 
             <Card className="p-8 hover:shadow-lg transition-shadow">
               <Flex direction="column" p="4">
-                <Box className="p-3 w-fit bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                   <Cloud className="w-8 h-8 text-primary" />
                 </Box>
                 <Heading size="6" className="text-foreground mb-4">
@@ -209,7 +209,7 @@ export default function ServicesPage() {
       </Section>
 
       {/* Technology Stack */}
-      <Section className="py-20 bg-primary/10">
+      <Section className="py-20 bg-primary/10 p-4">
         <Container size="4">
           <Flex direction="column" align="center" className="text-center mb-16">
             <Heading size="8" className="text-foreground mb-4">
@@ -275,7 +275,7 @@ export default function ServicesPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="py-20 bg-primary">
+      <Section className="py-20 bg-primary p-4">
         <Container size="4">
           <Flex
             direction="column"
@@ -301,6 +301,6 @@ export default function ServicesPage() {
           </Flex>
         </Container>
       </Section>
-    </Box>
+    </>
   );
 }

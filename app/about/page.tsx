@@ -30,9 +30,9 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <Box className="min-h-screen">
+    <>
       {/* Hero Section */}
-      <Section className="py-20 bg-primary/10">
+      <Section className="py-20 bg-primary/10 p-4">
         <Container size="4">
           <Flex
             direction="column"
@@ -56,7 +56,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Mission & Vision */}
-      <Section className="py-20">
+      <Section className="py-20 p-4">
         <Container size="4">
           <Grid columns={{ initial: "1", md: "2" }} className="gap-12">
             <Box>
@@ -113,7 +113,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Values */}
-      <Section className="py-20 bg-primary/10">
+      <Section className="py-20 bg-primary/10 p-4">
         <Container size="4">
           <Flex direction="column" align="center" className="text-center mb-16">
             <Heading size="8" className="text-foreground mb-4">
@@ -130,7 +130,7 @@ export default function AboutPage() {
             className="max-w-6xl mx-auto"
           >
             <Card className="p-8 text-center">
-              <Box className="p-3 w-fit bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <Target className="w-8 h-8 text-primary" />
               </Box>
               <Heading size="5" className="text-foreground mb-4">
@@ -144,7 +144,7 @@ export default function AboutPage() {
             </Card>
 
             <Card className="p-8 text-center">
-              <Box className="p-3 w-fit bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <Users className="w-8 h-8 text-primary" />
               </Box>
               <Heading size="5" className="text-foreground mb-4">
@@ -157,7 +157,7 @@ export default function AboutPage() {
             </Card>
 
             <Card className="p-8 text-center">
-              <Box className="p-3 w-fit bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <Award className="w-8 h-8 text-primary" />
               </Box>
               <Heading size="5" className="text-foreground mb-4">
@@ -173,7 +173,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Stats */}
-      <Section className="py-20">
+      <Section className="py-20 p-4">
         <Container size="4">
           <Grid
             columns={{ initial: "2", md: "4" }}
@@ -209,7 +209,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Why Choose Us */}
-      <Section className="py-20 bg-primary/10">
+      <Section className="py-20 bg-primary/10 p-4">
         <Container size="4">
           <Flex direction="column" align="center" className="text-center mb-16">
             <Heading size="8" className="text-foreground mb-4">
@@ -280,7 +280,7 @@ export default function AboutPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="py-20 bg-primary">
+      <Section className="py-20 bg-primary p-4">
         <Container size="4">
           <Flex
             direction="column"
@@ -306,6 +306,6 @@ export default function AboutPage() {
           </Flex>
         </Container>
       </Section>
-    </Box>
+    </>
   );
 }

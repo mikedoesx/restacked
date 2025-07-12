@@ -1,12 +1,19 @@
-import { Box, Button, Container, Flex, Link } from "@radix-ui/themes";
+"use client";
+
+import { Container, Flex, IconButton, Link } from "@radix-ui/themes";
+import { MenuIcon, XIcon } from "lucide-react";
 
 import Image from "next/image";
+import clsx from "clsx";
+import { useState } from "react";
 
 export const AppHeader = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <Box className="border-b border-[hsl(var(--border))]">
+    <header>
       <Container size="4">
-        <Flex align="center" justify="between" py="4">
+        <Flex align="center" justify="between" p="4">
           <a href="/">
             <Image
               src="/logo-header.png"
@@ -16,37 +23,61 @@ export const AppHeader = () => {
             />
           </a>
 
-          <Flex align="center" gap="6" className="hidden md:flex">
-            <Link
-              href="/services"
-              className="text-muted-foreground hover:text-primary transition-colors"
+          {/* Desktop nav */}
+          <div className="hidden md:flex">
+            <Flex align="center" gap="6">
+              <NavLinks />
+            </Flex>
+          </div>
+
+          {/* Mobile hamburger */}
+          <div className="md:hidden">
+            <IconButton
+              variant="ghost"
+              onClick={() => setMenuOpen((prev) => !prev)}
+              aria-label="Toggle menu"
             >
-              Services
-            </Link>
-            <Link
-              href="/work"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Work
-            </Link>
-            <Link
-              href="/about"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Contact
-            </Link>
-          </Flex>
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            Get Started
-          </Button>
+              {menuOpen ? <XIcon /> : <MenuIcon />}
+            </IconButton>
+          </div>
         </Flex>
+
+        {/* Mobile menu dropdown */}
+        <div
+          className={clsx(
+            "flex flex-col gap-4 md:hidden mt-2 transition-all duration-300 overflow-hidden",
+            menuOpen
+              ? "max-h-[500px] opacity-100 px-4 pb-4"
+              : "max-h-0 opacity-0"
+          )}
+        >
+          <NavLinks mobile />
+        </div>
       </Container>
-    </Box>
+    </header>
+  );
+};
+
+const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
+  const linkClass = clsx(
+    "text-muted-foreground hover:text-primary transition-colors",
+    mobile && "text-lg px-2"
+  );
+
+  return (
+    <>
+      <Link href="/services" className={linkClass}>
+        Services
+      </Link>
+      <Link href="/work" className={linkClass}>
+        Work
+      </Link>
+      <Link href="/about" className={linkClass}>
+        About
+      </Link>
+      <Link href="/contact" className={linkClass}>
+        Contact
+      </Link>
+    </>
   );
 };
