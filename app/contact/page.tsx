@@ -1,4 +1,4 @@
-import { ArrowRight, Clock, Code2, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Clock, Mail, MapPin, Phone } from "lucide-react";
 import {
   Box,
   Button,
@@ -13,7 +13,6 @@ import {
   TextField,
 } from "@radix-ui/themes";
 
-import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -61,17 +60,41 @@ export default function ContactPage() {
         <Container size="4">
           <Grid
             columns={{ initial: "1", lg: "3" }}
-            gap="12"
-            className="max-w-6xl mx-auto"
+            className="max-w-6xl mx-auto gap-12"
           >
             {/* Contact Form */}
             <Box className="lg:col-span-2">
               <Card className="p-8">
-                <Heading size="6" className="text-foreground mb-6">
-                  Send us a message
-                </Heading>
-                <form className="space-y-6">
-                  <Grid columns={{ initial: "1", sm: "2" }} gap="4">
+                <div className="p-4">
+                  <Heading size="6" className="text-foreground mb-6">
+                    Send us a message
+                  </Heading>
+                  <form className="space-y-6">
+                    <Grid columns={{ initial: "1", sm: "2" }} gap="4">
+                      <Box>
+                        <Text
+                          as="label"
+                          size="3"
+                          weight="medium"
+                          className="text-foreground mb-2 block"
+                        >
+                          First Name *
+                        </Text>
+                        <TextField.Root placeholder="John" required />
+                      </Box>
+                      <Box>
+                        <Text
+                          as="label"
+                          size="3"
+                          weight="medium"
+                          className="text-foreground mb-2 block"
+                        >
+                          Last Name *
+                        </Text>
+                        <TextField.Root placeholder="Doe" required />
+                      </Box>
+                    </Grid>
+
                     <Box>
                       <Text
                         as="label"
@@ -79,10 +102,15 @@ export default function ContactPage() {
                         weight="medium"
                         className="text-foreground mb-2 block"
                       >
-                        First Name *
+                        Email Address *
                       </Text>
-                      <TextField.Root placeholder="John" required />
+                      <TextField.Root
+                        type="email"
+                        placeholder="john@company.com"
+                        required
+                      />
                     </Box>
+
                     <Box>
                       <Text
                         as="label"
@@ -90,183 +118,159 @@ export default function ContactPage() {
                         weight="medium"
                         className="text-foreground mb-2 block"
                       >
-                        Last Name *
+                        Company
                       </Text>
-                      <TextField.Root placeholder="Doe" required />
+                      <TextField.Root placeholder="Your Company Name" />
                     </Box>
-                  </Grid>
 
-                  <Box>
-                    <Text
-                      as="label"
-                      size="3"
-                      weight="medium"
-                      className="text-foreground mb-2 block"
+                    <Box>
+                      <Text
+                        as="label"
+                        size="3"
+                        weight="medium"
+                        className="text-foreground mb-2 block"
+                      >
+                        Project Type
+                      </Text>
+                      <select className="w-full p-1.5 border border-border rounded text-sm text-foreground">
+                        <option value="">Select a service</option>
+                        <option value="web-development">Web Development</option>
+                        <option value="mobile-development">
+                          Mobile Development
+                        </option>
+                        <option value="consulting">Technical Consulting</option>
+                        <option value="devops">DevOps & Infrastructure</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </Box>
+
+                    <Box>
+                      <Text
+                        as="label"
+                        size="3"
+                        weight="medium"
+                        className="text-foreground mb-2 block"
+                      >
+                        Project Budget
+                      </Text>
+                      <select className="w-full p-1.5 border border-border rounded text-foreground">
+                        <option value="">Select budget range</option>
+                        <option value="10k-25k">$10,000 - $25,000</option>
+                        <option value="25k-50k">$25,000 - $50,000</option>
+                        <option value="50k-100k">$50,000 - $100,000</option>
+                        <option value="100k+">$100,000+</option>
+                      </select>
+                    </Box>
+
+                    <Box>
+                      <Text
+                        as="label"
+                        size="3"
+                        weight="medium"
+                        className="text-foreground mb-2 block"
+                      >
+                        Project Details *
+                      </Text>
+                      <TextArea
+                        placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
+                        rows={6}
+                        required
+                      />
+                    </Box>
+
+                    <Button
+                      type="submit"
+                      size="4"
+                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4"
                     >
-                      Email Address *
-                    </Text>
-                    <TextField.Root
-                      type="email"
-                      placeholder="john@company.com"
-                      required
-                    />
-                  </Box>
-
-                  <Box>
-                    <Text
-                      as="label"
-                      size="3"
-                      weight="medium"
-                      className="text-foreground mb-2 block"
-                    >
-                      Company
-                    </Text>
-                    <TextField.Root placeholder="Your Company Name" />
-                  </Box>
-
-                  <Box>
-                    <Text
-                      as="label"
-                      size="3"
-                      weight="medium"
-                      className="text-foreground mb-2 block"
-                    >
-                      Project Type
-                    </Text>
-                    <select className="w-full p-3 border border-border rounded-md bg-background text-foreground">
-                      <option value="">Select a service</option>
-                      <option value="web-development">Web Development</option>
-                      <option value="mobile-development">
-                        Mobile Development
-                      </option>
-                      <option value="consulting">Technical Consulting</option>
-                      <option value="devops">DevOps & Infrastructure</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </Box>
-
-                  <Box>
-                    <Text
-                      as="label"
-                      size="3"
-                      weight="medium"
-                      className="text-foreground mb-2 block"
-                    >
-                      Project Budget
-                    </Text>
-                    <select className="w-full p-3 border border-border rounded-md bg-background text-foreground">
-                      <option value="">Select budget range</option>
-                      <option value="10k-25k">$10,000 - $25,000</option>
-                      <option value="25k-50k">$25,000 - $50,000</option>
-                      <option value="50k-100k">$50,000 - $100,000</option>
-                      <option value="100k+">$100,000+</option>
-                    </select>
-                  </Box>
-
-                  <Box>
-                    <Text
-                      as="label"
-                      size="3"
-                      weight="medium"
-                      className="text-foreground mb-2 block"
-                    >
-                      Project Details *
-                    </Text>
-                    <TextArea
-                      placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
-                      rows={6}
-                      required
-                    />
-                  </Box>
-
-                  <Button
-                    type="submit"
-                    size="4"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4"
-                  >
-                    Send Message
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </form>
+                      Send Message
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </Button>
+                  </form>
+                </div>
               </Card>
             </Box>
 
-            {/* Contact Information */}
             <Box>
+              {/* Contact Information */}
               <Card className="p-8 mb-8">
-                <Heading size="5" className="text-foreground mb-6">
-                  Get in Touch
-                </Heading>
-                <Flex direction="column" gap="6">
-                  <Flex align="center" gap="4">
-                    <Box className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-primary" />
-                    </Box>
-                    <Box>
-                      <Text weight="medium" className="text-foreground">
-                        Email
-                      </Text>
-                      <Text size="2" className="text-muted-foreground">
-                        hello@restacked.dev
-                      </Text>
-                    </Box>
-                  </Flex>
+                <div className="p-4">
+                  <Heading size="5" className="text-foreground mb-6">
+                    Get in Touch
+                  </Heading>
+                  <Flex direction="column" gap="6">
+                    <Flex align="center" gap="4">
+                      <Box className="p-3 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Mail className="w-5 h-5 text-primary" />
+                      </Box>
+                      <Flex direction={"column"}>
+                        <Text weight="medium" className="text-foreground">
+                          Email
+                        </Text>
+                        <Text size="2" className="text-muted-foreground">
+                          mike@restacked.dev
+                        </Text>
+                      </Flex>
+                    </Flex>
 
-                  <Flex align="center" gap="4">
-                    <Box className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-primary" />
-                    </Box>
-                    <Box>
-                      <Text weight="medium" className="text-foreground">
-                        Phone
-                      </Text>
-                      <Text size="2" className="text-muted-foreground">
-                        +1 (555) 123-4567
-                      </Text>
-                    </Box>
-                  </Flex>
+                    <Flex align="center" gap="4">
+                      <Box className="p-3 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Phone className="w-5 h-5 text-primary" />
+                      </Box>
+                      <Flex direction={"column"}>
+                        <Text weight="medium" className="text-foreground">
+                          Phone
+                        </Text>
+                        <Text size="2" className="text-muted-foreground">
+                          +1 (813) 295-9810
+                        </Text>
+                      </Flex>
+                    </Flex>
 
-                  <Flex align="center" gap="4">
-                    <Box className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-primary" />
-                    </Box>
-                    <Box>
-                      <Text weight="medium" className="text-foreground">
-                        Location
-                      </Text>
-                      <Text size="2" className="text-muted-foreground">
-                        Remote & On-site
-                      </Text>
-                    </Box>
-                  </Flex>
+                    <Flex align="center" gap="4">
+                      <Box className="p-3 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <MapPin className="w-5 h-5 text-primary" />
+                      </Box>
+                      <Flex direction={"column"}>
+                        <Text weight="medium" className="text-foreground">
+                          Location
+                        </Text>
+                        <Text size="2" className="text-muted-foreground">
+                          Remote & On-site
+                        </Text>
+                      </Flex>
+                    </Flex>
 
-                  <Flex align="center" gap="4">
-                    <Box className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Clock className="w-5 h-5 text-primary" />
-                    </Box>
-                    <Box>
-                      <Text weight="medium" className="text-foreground">
-                        Response Time
-                      </Text>
-                      <Text size="2" className="text-muted-foreground">
-                        Within 24 hours
-                      </Text>
-                    </Box>
+                    <Flex align="center" gap="4">
+                      <Box className="p-3 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Clock className="w-5 h-5 text-primary" />
+                      </Box>
+                      <Flex direction={"column"}>
+                        <Text weight="medium" className="text-foreground">
+                          Response Time
+                        </Text>
+                        <Text size="2" className="text-muted-foreground">
+                          Within 24 hours
+                        </Text>
+                      </Flex>
+                    </Flex>
                   </Flex>
-                </Flex>
+                </div>
               </Card>
 
               <Card className="p-8">
-                <Heading size="5" className="text-foreground mb-4">
-                  Free Consultation
-                </Heading>
-                <Text className="text-muted-foreground mb-4 leading-relaxed">
-                  Schedule a free 30-minute consultation to discuss your project
-                  requirements and get expert advice.
-                </Text>
-                <Button variant="outline" className="w-full bg-transparent">
-                  Schedule Call
-                </Button>
+                <Flex direction="column" gap="2" className="p-4">
+                  <div>
+                    <Heading size="5" className="text-foreground mb-4">
+                      Free Consultation
+                    </Heading>
+                    <Text className="text-muted-foreground mb-4 leading-relaxed">
+                      Schedule a free 30-minute consultation to discuss your
+                      project requirements and get expert advice.
+                    </Text>
+                  </div>
+                  <Button variant="outline">Schedule Call</Button>
+                </Flex>
               </Card>
             </Box>
           </Grid>

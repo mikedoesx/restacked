@@ -1,7 +1,6 @@
 import {
   ArrowRight,
   Cloud,
-  Code2,
   Database,
   ExternalLink,
   Globe,

@@ -1,11 +1,4 @@
-import {
-  ArrowRight,
-  Award,
-  CheckCircle,
-  Code2,
-  Target,
-  Users,
-} from "lucide-react";
+import { ArrowRight, Award, CheckCircle, Target, Users } from "lucide-react";
 import {
   Box,
   Button,
