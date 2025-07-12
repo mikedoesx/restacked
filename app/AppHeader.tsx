@@ -37,7 +37,11 @@ export const AppHeader = () => {
               onClick={() => setMenuOpen((prev) => !prev)}
               aria-label="Toggle menu"
             >
-              {menuOpen ? <XIcon /> : <MenuIcon />}
+              {menuOpen ? (
+                <XIcon className="text-primary" />
+              ) : (
+                <MenuIcon className="text-primary" />
+              )}
             </IconButton>
           </div>
         </Flex>
