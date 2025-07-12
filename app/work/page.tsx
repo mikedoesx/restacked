@@ -142,7 +142,7 @@ export default function WorkPage() {
               className="text-muted-foreground mb-10 max-w-3xl leading-relaxed"
             >
               Explore our successful projects across various industries. From
-              startups to enterprise solutions, we've delivered innovative
+              startups to enterprise solutions, we&apos;ve delivered innovative
               software that drives business growth.
             </Text>
           </Flex>
@@ -313,7 +313,7 @@ export default function WorkPage() {
               size="5"
               className="text-primary-foreground/90 mb-8 max-w-2xl"
             >
-              Let's discuss your vision and create a custom solution that
+              Let&apos;s discuss your vision and create a custom solution that
               exceeds your expectations.
             </Text>
             <Button size="4" asChild>

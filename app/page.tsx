@@ -291,7 +291,7 @@ export default function LandingPage() {
               Ready to Get Started?
             </Heading>
             <Text size="5" className="text-muted-foreground">
-              Let's discuss your project and how we can help you succeed
+              Let&apos;s discuss your project and how we can help you succeed
             </Text>
           </Flex>
 

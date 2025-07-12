@@ -47,9 +47,9 @@ export default function AboutPage() {
               size="6"
               className="text-muted-foreground mb-10 max-w-3xl leading-relaxed"
             >
-              We're a team of passionate developers, architects, and consultants
-              dedicated to creating exceptional software solutions that drive
-              business growth.
+              We&apos;re a team of passionate developers, architects, and
+              consultants dedicated to creating exceptional software solutions
+              that drive business growth.
             </Text>
           </Flex>
         </Container>
@@ -73,8 +73,8 @@ export default function AboutPage() {
               </Text>
               <Text size="4" className="text-muted-foreground leading-relaxed">
                 Every project we undertake is an opportunity to push the
-                boundaries of what's possible, delivering solutions that exceed
-                expectations and drive real business value.
+                boundaries of what&apos;s possible, delivering solutions that
+                exceed expectations and drive real business value.
               </Text>
             </Box>
             <Box>
@@ -216,8 +216,8 @@ export default function AboutPage() {
               Why Choose Restacked?
             </Heading>
             <Text size="5" className="text-muted-foreground max-w-2xl">
-              We're more than just developers – we're your strategic technology
-              partners
+              We&apos;re more than just developers - we&apos;re your strategic
+              technology partners
             </Text>
           </Flex>
 
@@ -294,8 +294,8 @@ export default function AboutPage() {
               size="5"
               className="text-primary-foreground/90 mb-8 max-w-2xl"
             >
-              Let's discuss how we can help transform your ideas into powerful
-              software solutions.
+              Let&apos;s discuss how we can help transform your ideas into
+              powerful software solutions.
             </Text>
             <Button size="4" asChild>
               <Link href="/contact">

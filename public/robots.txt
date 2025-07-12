@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://restacked.dev
+
+# Sitemaps
+Sitemap: https://restacked.dev/sitemap.xml

@@ -14,14 +14,14 @@ export const AppHeader = () => {
     <header>
       <Container size="4">
         <Flex align="center" justify="between" p="4">
-          <a href="/">
+          <Link href="/">
             <Image
               src="/logo-header.png"
               width={280 * 0.8}
               height={60 * 0.8}
               alt="Restack, LLC Logo"
             />
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex">
@@ -48,7 +48,7 @@ export const AppHeader = () => {
             "flex flex-col gap-4 md:hidden mt-2 transition-all duration-300 overflow-hidden",
             menuOpen
               ? "max-h-[500px] opacity-100 px-4 pb-4"
-              : "max-h-0 opacity-0"
+              : "max-h-0 opacity-0",
           )}
         >
           <NavLinks mobile />
@@ -61,7 +61,7 @@ export const AppHeader = () => {
 const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
   const linkClass = clsx(
     "text-muted-foreground hover:text-primary transition-colors",
-    mobile && "text-lg px-2"
+    mobile && "text-lg px-2",
   );
 
   return (

@@ -41,7 +41,7 @@ export default function ContactPage() {
             className="max-w-4xl mx-auto text-center"
           >
             <Heading size="9" className="text-foreground mb-6 leading-tight">
-              Let's Build Something{" "}
+              Let&apos;s Build Something{" "}
               <span className="text-primary">Amazing Together</span>
             </Heading>
             <Text
@@ -319,7 +319,7 @@ export default function ContactPage() {
 
             <Card className="p-6">
               <Heading size="4" className="text-foreground mb-3">
-                What's included in your support?
+                What&apos;s included in your support?
               </Heading>
               <Text className="text-muted-foreground leading-relaxed">
                 We provide ongoing maintenance, bug fixes, security updates, and
