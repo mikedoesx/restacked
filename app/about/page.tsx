@@ -77,14 +77,11 @@ export default function AboutPage() {
                 exceed expectations and drive real business value.
               </Text>
             </Box>
-            <Box>
+            <Box className="space-y-2">
               <Heading size="7" className="text-foreground mb-6">
                 Our Approach
               </Heading>
-              <Text
-                size="4"
-                className="text-muted-foreground leading-relaxed mb-6"
-              >
+              <Text size="4" className="text-muted-foreground leading-relaxed">
                 We combine technical expertise with strategic thinking to
                 deliver solutions that align with your business goals. Our agile
                 methodology ensures rapid iteration and continuous improvement.
@@ -130,43 +127,49 @@ export default function AboutPage() {
             className="max-w-6xl mx-auto"
           >
             <Card className="p-8 text-center">
-              <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
-                <Target className="w-8 h-8 text-primary" />
+              <Box className="p-3">
+                <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
+                  <Target className="w-8 h-8 text-primary" />
+                </Box>
+                <Heading size="5" className="text-foreground mb-4">
+                  Excellence
+                </Heading>
+                <Text className="text-muted-foreground leading-relaxed">
+                  We strive for excellence in every line of code, every design
+                  decision, and every client interaction. Quality is never
+                  negotiable.
+                </Text>
               </Box>
-              <Heading size="5" className="text-foreground mb-4">
-                Excellence
-              </Heading>
-              <Text className="text-muted-foreground leading-relaxed">
-                We strive for excellence in every line of code, every design
-                decision, and every client interaction. Quality is never
-                negotiable.
-              </Text>
             </Card>
 
             <Card className="p-8 text-center">
-              <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
-                <Users className="w-8 h-8 text-primary" />
+              <Box className="p-3">
+                <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
+                  <Users className="w-8 h-8 text-primary" />
+                </Box>
+                <Heading size="5" className="text-foreground mb-4">
+                  Collaboration
+                </Heading>
+                <Text className="text-muted-foreground leading-relaxed">
+                  We work as an extension of your team, fostering open
+                  communication and shared ownership of project success.
+                </Text>
               </Box>
-              <Heading size="5" className="text-foreground mb-4">
-                Collaboration
-              </Heading>
-              <Text className="text-muted-foreground leading-relaxed">
-                We work as an extension of your team, fostering open
-                communication and shared ownership of project success.
-              </Text>
             </Card>
 
             <Card className="p-8 text-center">
-              <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
-                <Award className="w-8 h-8 text-primary" />
+              <Box className="p-3">
+                <Box className="p-3 w-fit bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
+                  <Award className="w-8 h-8 text-primary" />
+                </Box>
+                <Heading size="5" className="text-foreground mb-4">
+                  Innovation
+                </Heading>
+                <Text className="text-muted-foreground leading-relaxed">
+                  We embrace new technologies and methodologies, constantly
+                  evolving to deliver cutting-edge solutions.
+                </Text>
               </Box>
-              <Heading size="5" className="text-foreground mb-4">
-                Innovation
-              </Heading>
-              <Text className="text-muted-foreground leading-relaxed">
-                We embrace new technologies and methodologies, constantly
-                evolving to deliver cutting-edge solutions.
-              </Text>
             </Card>
           </Grid>
         </Container>
