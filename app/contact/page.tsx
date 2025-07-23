@@ -12,6 +12,7 @@ import {
   TextArea,
   TextField,
 } from "@radix-ui/themes";
+import { CardContent, CardHeader } from "@/components/ui/card";
 
 import type { Metadata } from "next";
 
@@ -71,36 +72,36 @@ export default function ContactPage() {
                   </Heading>
                   <form className="space-y-6">
                     <Grid columns={{ initial: "1", sm: "2" }} gap="4">
-                      <Box>
+                      <div className="space-y-2">
                         <Text
                           as="label"
                           size="3"
                           weight="medium"
-                          className="text-foreground mb-2 block"
+                          className="text-foreground block"
                         >
                           First Name *
                         </Text>
                         <TextField.Root placeholder="John" required />
-                      </Box>
-                      <Box>
+                      </div>
+                      <div className="space-y-2">
                         <Text
                           as="label"
                           size="3"
                           weight="medium"
-                          className="text-foreground mb-2 block"
+                          className="text-foreground block"
                         >
                           Last Name *
                         </Text>
                         <TextField.Root placeholder="Doe" required />
-                      </Box>
+                      </div>
                     </Grid>
 
-                    <Box>
+                    <div className="space-y-2">
                       <Text
                         as="label"
                         size="3"
                         weight="medium"
-                        className="text-foreground mb-2 block"
+                        className="text-foreground block"
                       >
                         Email Address *
                       </Text>
@@ -109,26 +110,26 @@ export default function ContactPage() {
                         placeholder="john@company.com"
                         required
                       />
-                    </Box>
+                    </div>
 
-                    <Box>
+                    <div className="space-y-2">
                       <Text
                         as="label"
                         size="3"
                         weight="medium"
-                        className="text-foreground mb-2 block"
+                        className="text-foreground block"
                       >
                         Company
                       </Text>
                       <TextField.Root placeholder="Your Company Name" />
-                    </Box>
+                    </div>
 
-                    <Box>
+                    <div className="space-y-2">
                       <Text
                         as="label"
                         size="3"
                         weight="medium"
-                        className="text-foreground mb-2 block"
+                        className="text-foreground block"
                       >
                         Project Type
                       </Text>
@@ -142,14 +143,14 @@ export default function ContactPage() {
                         <option value="devops">DevOps & Infrastructure</option>
                         <option value="other">Other</option>
                       </select>
-                    </Box>
+                    </div>
 
-                    <Box>
+                    <div className="space-y-2">
                       <Text
                         as="label"
                         size="3"
                         weight="medium"
-                        className="text-foreground mb-2 block"
+                        className="text-foreground block"
                       >
                         Project Budget
                       </Text>
@@ -160,14 +161,14 @@ export default function ContactPage() {
                         <option value="50k-100k">$50,000 - $100,000</option>
                         <option value="100k+">$100,000+</option>
                       </select>
-                    </Box>
+                    </div>
 
-                    <Box>
+                    <div className="space-y-2">
                       <Text
                         as="label"
                         size="3"
                         weight="medium"
-                        className="text-foreground mb-2 block"
+                        className="text-foreground block"
                       >
                         Project Details *
                       </Text>
@@ -176,13 +177,9 @@ export default function ContactPage() {
                         rows={6}
                         required
                       />
-                    </Box>
+                    </div>
 
-                    <Button
-                      type="submit"
-                      size="4"
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4"
-                    >
+                    <Button type="submit" size="4">
                       Send Message
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
@@ -294,49 +291,65 @@ export default function ContactPage() {
             gap="8"
             className="max-w-4xl mx-auto"
           >
-            <Card className="p-6">
-              <Heading size="4" className="text-foreground mb-3">
-                How long does a typical project take?
-              </Heading>
-              <Text className="text-muted-foreground leading-relaxed">
-                Project timelines vary based on complexity. Simple web
-                applications typically take 4-8 weeks, while enterprise
-                solutions may take 3-6 months. We provide detailed timelines
-                during our initial consultation.
-              </Text>
+            <Card>
+              <CardHeader>
+                <Heading size="4" className="text-foreground">
+                  How long does a typical project take?
+                </Heading>
+              </CardHeader>
+              <CardContent>
+                <Text className="text-muted-foreground leading-relaxed">
+                  Project timelines vary based on complexity. Simple web
+                  applications typically take 4-8 weeks, while enterprise
+                  solutions may take 3-6 months. We provide detailed timelines
+                  during our initial consultation.
+                </Text>
+              </CardContent>
             </Card>
 
-            <Card className="p-6">
-              <Heading size="4" className="text-foreground mb-3">
-                Do you work with startups?
-              </Heading>
-              <Text className="text-muted-foreground leading-relaxed">
-                We love working with startups and understand the unique
-                challenges they face. We offer flexible engagement models and
-                can help you build an MVP or scale your existing product.
-              </Text>
+            <Card>
+              <CardHeader>
+                <Heading size="4" className="text-foreground">
+                  Do you work with startups?
+                </Heading>
+              </CardHeader>
+              <CardContent>
+                <Text className="text-muted-foreground leading-relaxed">
+                  We love working with startups and understand the unique
+                  challenges they face. We offer flexible engagement models and
+                  can help you build an MVP or scale your existing product.
+                </Text>
+              </CardContent>
             </Card>
 
-            <Card className="p-6">
-              <Heading size="4" className="text-foreground mb-3">
-                What&apos;s included in your support?
-              </Heading>
-              <Text className="text-muted-foreground leading-relaxed">
-                We provide ongoing maintenance, bug fixes, security updates, and
-                feature enhancements. Our support packages are tailored to your
-                specific needs and can include 24/7 monitoring.
-              </Text>
+            <Card>
+              <CardHeader>
+                <Heading size="4" className="text-foreground">
+                  What&apos;s included in your support?
+                </Heading>
+              </CardHeader>
+              <CardContent>
+                <Text className="text-muted-foreground leading-relaxed">
+                  We provide ongoing maintenance, bug fixes, security updates,
+                  and feature enhancements. Our support packages are tailored to
+                  your specific needs and can include 24/7 monitoring.
+                </Text>
+              </CardContent>
             </Card>
 
-            <Card className="p-6">
-              <Heading size="4" className="text-foreground mb-3">
-                Can you work with our existing team?
-              </Heading>
-              <Text className="text-muted-foreground leading-relaxed">
-                Yes! We often work as an extension of existing development
-                teams, providing specialized expertise or additional capacity
-                for specific projects or technologies.
-              </Text>
+            <Card>
+              <CardHeader>
+                <Heading size="4" className="text-foreground mb-3">
+                  Can you work with our existing team?
+                </Heading>
+              </CardHeader>
+              <CardContent>
+                <Text className="text-muted-foreground leading-relaxed">
+                  Yes! We often work as an extension of existing development
+                  teams, providing specialized expertise or additional capacity
+                  for specific projects or technologies.
+                </Text>
+              </CardContent>
             </Card>
           </Grid>
         </Container>

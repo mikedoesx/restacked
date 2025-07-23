@@ -22,6 +22,7 @@ import {
   TextField,
 } from "@radix-ui/themes";
 
+import { CardContent } from "@/components/ui/card";
 import Link from "next/link";
 
 export default function LandingPage() {
@@ -310,64 +311,62 @@ export default function LandingPage() {
             </Text>
           </Flex>
 
-          <Card className="p-8">
-            <form className="space-y-6 p-4">
-              <Box>
-                <Text
-                  as="label"
-                  size="3"
-                  weight="medium"
-                  className="text-foreground mb-2 block"
-                >
-                  Name
-                </Text>
-                <TextField.Root
-                  placeholder="Your full name"
-                  className="w-full"
-                />
-              </Box>
+          <Card>
+            <CardContent>
+              <form className="space-y-6">
+                <div className="space-y-1">
+                  <Text
+                    as="label"
+                    size="3"
+                    weight="medium"
+                    className="text-foreground block"
+                  >
+                    Name
+                  </Text>
+                  <TextField.Root
+                    placeholder="Your full name"
+                    className="w-full"
+                  />
+                </div>
 
-              <Box>
-                <Text
-                  as="label"
-                  size="3"
-                  weight="medium"
-                  className="text-foreground mb-2 block"
-                >
-                  Email
-                </Text>
-                <TextField.Root
-                  type="email"
-                  placeholder="your@email.com"
-                  className="w-full"
-                />
-              </Box>
+                <div className="space-y-1">
+                  <Text
+                    as="label"
+                    size="3"
+                    weight="medium"
+                    className="text-foreground block"
+                  >
+                    Email
+                  </Text>
+                  <TextField.Root
+                    type="email"
+                    placeholder="your@email.com"
+                    className="w-full"
+                  />
+                </div>
 
-              <Box>
-                <Text
-                  as="label"
-                  size="3"
-                  weight="medium"
-                  className="text-foreground mb-2 block"
-                >
-                  Message
-                </Text>
-                <TextArea
-                  placeholder="Tell us about your project..."
-                  rows={5}
-                  className="w-full"
-                />
-              </Box>
+                <div className="space-y-1">
+                  <Text
+                    as="label"
+                    size="3"
+                    weight="medium"
+                    className="text-foreground block"
+                  >
+                    Message
+                  </Text>
+                  <TextArea
+                    placeholder="Tell us about your project..."
+                    rows={5}
+                    className="w-full"
+                  />
+                </div>
 
-              <Button
-                type="submit"
-                size="4"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4"
-              >
-                Send Message
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </form>
+                <Button type="submit" size="4">
+                  Send Message
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </form>
+            </CardContent>
           </Card>
         </Container>
       </Section>
