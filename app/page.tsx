@@ -1,375 +1,272 @@
 import {
   ArrowRight,
-  CheckCircle,
-  Globe,
-  Shield,
-  Smartphone,
-  Star,
-  Users,
-  Zap,
+  Bot,
+  CheckCircle2,
+  Cloud,
+  Cpu,
+  Gauge,
+  Layers,
+  ShieldCheck,
 } from "lucide-react";
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Section,
-  Text,
-  TextArea,
-  TextField,
-} from "@radix-ui/themes";
-
-import { CardContent } from "@/components/ui/card";
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export default function LandingPage() {
+import { companyStats, siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "AI Development & Custom Software for Startups and Enterprises",
+  description:
+    "Restacked turns product ideas into intelligent software. We deliver AI development, full-stack apps, DevOps, and fractional CTO guidance with measurable outcomes.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Restacked | Transform Your Vision into Intelligent Software",
+    description:
+      "Custom software, AI consulting, and cloud-native engineering for founders, CTOs, and product teams.",
+    url: "/",
+  },
+};
+
+const differentiators = [
+  {
+    title: "AI Expertise",
+    description:
+      "Embed practical AI in your workflows, products, and data operations without adding unnecessary complexity.",
+    icon: Bot,
+  },
+  {
+    title: "Rapid Delivery",
+    description:
+      "Move from idea to production quickly with focused scopes, iterative releases, and transparent execution.",
+    icon: Gauge,
+  },
+  {
+    title: "Enterprise Security",
+    description:
+      "Ship with security and reliability in mind from day one, including architecture patterns that scale.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Full-Stack Capability",
+    description:
+      "Design, front-end, backend, infrastructure, and CI/CD under one team so nothing gets lost in handoffs.",
+    icon: Layers,
+  },
+];
+
+const services = [
+  {
+    title: "Custom Software Development",
+    description:
+      "Build scalable SaaS and internal tools with Next.js, React, Node.js, and TypeScript.",
+    icon: Cpu,
+  },
+  {
+    title: "AI & Machine Learning",
+    description:
+      "Deploy LLM-powered assistants, retrieval workflows, and predictive capabilities that create real leverage.",
+    icon: Bot,
+  },
+  {
+    title: "DevOps & Cloud Infrastructure",
+    description:
+      "Automate releases, stabilize environments, and improve uptime on AWS, GCP, and Azure.",
+    icon: Cloud,
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Restacked helped us launch our B2B platform faster than expected and gave our internal team a production-ready foundation.",
+    person: "Director of Product, HealthTech Client",
+  },
+  {
+    quote:
+      "Their architecture and delivery discipline reduced technical debt while improving release velocity across teams.",
+    person: "CTO, Enterprise SaaS Client",
+  },
+];
+
+export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <Section className="bg-primary/10 px-4">
-        <Container size="4">
-          <Flex
-            direction="column"
-            align="center"
-            className="max-w-4xl mx-auto text-center py-20"
+      <section className="section-shell py-16 md:py-24">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="fade-up">
+            <p className="mb-4 inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+              AI Development and Custom Software Studio
+            </p>
+            <h1 className="max-w-3xl text-4xl font-semibold leading-tight md:text-6xl">
+              Transform your vision into intelligent software.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
+              We help founders, CTOs, and product leaders ship secure, scalable
+              digital products faster with expert engineering, AI integration,
+              and pragmatic technical strategy.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/contact" className="cta-button">
+                Start a Project
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+              <Link href="/products" className="ghost-button">
+                Explore Products
+              </Link>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+              <span className="inline-flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
+                Startups to enterprise engagements
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
+                Typical response within 24 hours
+              </span>
+            </div>
+          </div>
+
+          <div className="surface-card fade-in">
+            <h2 className="text-xl font-semibold">
+              Clausibly Product Spotlight
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Clausibly is our AI-powered contract analysis platform that turns
+              dense legal language into plain-English summaries, risk alerts,
+              and actionable next steps.
+            </p>
+            <ul className="mt-5 space-y-3 text-sm">
+              <li className="inline-flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
+                Instant clause-level summaries
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
+                Risk detection for legal and business teams
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
+                Subscription model for freelancers to enterprises
+              </li>
+            </ul>
+            <a
+              href={siteConfig.clausiblyUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center text-sm font-semibold text-primary transition hover:opacity-80"
+            >
+              Visit clausibly.com
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell py-8 md:py-12">
+        <div className="grid gap-4 rounded-2xl border border-border/80 bg-card/75 p-6 text-center backdrop-blur-sm sm:grid-cols-2 lg:grid-cols-4">
+          {companyStats.map((stat) => (
+            <div key={stat.label}>
+              <p className="font-display text-3xl font-semibold text-primary">
+                {stat.value}
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell py-16 md:py-20">
+        <div className="mb-10">
+          <h2 className="text-3xl font-semibold md:text-4xl">
+            Why teams choose Restacked
+          </h2>
+          <p className="mt-3 max-w-3xl text-muted-foreground">
+            We combine product thinking and engineering depth so your software
+            roadmap stays aligned with business outcomes.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {differentiators.map((item) => (
+            <article key={item.title} className="surface-card">
+              <item.icon className="h-6 w-6 text-primary" />
+              <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {item.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell py-16 md:py-20">
+        <div className="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-3xl font-semibold md:text-4xl">
+              Core services
+            </h2>
+            <p className="mt-3 max-w-3xl text-muted-foreground">
+              Built for fast-moving startups and enterprise teams modernizing
+              legacy systems.
+            </p>
+          </div>
+          <Link
+            href="/services"
+            className="hidden text-sm font-semibold text-primary md:inline-flex"
           >
-            <Heading size="9" className="text-foreground mb-6 leading-tight">
-              Software <span className="text-primary">Built Smart</span>
-            </Heading>
-            <Text
-              size="6"
-              className="text-muted-foreground mb-10 max-w-4xl leading-relaxed"
-            >
-              Restacked helps startups and enterprises design, build, and scale
-              full-stack applications.
-            </Text>
-            <Flex
-              direction={{ initial: "column", sm: "row" }}
-              gap="4"
-              justify="center"
-            >
-              <Button
-                size="4"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4"
-                asChild
-              >
-                <Link href="/contact">
-                  Book a Consultation
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-              <Button
-                size="4"
-                variant="outline"
-                className="border-border text-foreground hover:bg-primary/10 px-8 py-4 bg-transparent"
-                asChild
-              >
-                <Link href="/work">View Work</Link>
-              </Button>
-            </Flex>
-          </Flex>
-        </Container>
-      </Section>
+            View all services
+          </Link>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {services.map((service) => (
+            <article key={service.title} className="surface-card">
+              <service.icon className="h-6 w-6 text-primary" />
+              <h3 className="mt-4 text-lg font-semibold">{service.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {service.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-      {/* Why Choose Us */}
-      <Section className="bg-primary px-4 text-center">
-        <Container size="4">
-          <Grid columns={{ initial: "1", md: "3" }} gap="6">
-            <Flex
-              direction="column"
-              align="center"
-              justify={"center"}
-              className={"max-w-xs mx-auto"}
-            >
-              <Zap className="w-12 h-12 mb-4 text-primary-foreground/70" />
-              <Heading size="5" className="text-primary-foreground mb-2">
-                Lightning Fast
-              </Heading>
-              <Text className="text-primary-foreground/80">
-                Rapid development cycles without compromising quality
-              </Text>
-            </Flex>
-            <Flex
-              direction="column"
-              align="center"
-              justify={"center"}
-              className={"max-w-xs mx-auto"}
-            >
-              <Shield className="w-12 h-12 mb-4 text-primary-foreground/70" />
-              <Heading size="5" className="text-primary-foreground mb-2">
-                Enterprise Security
-              </Heading>
-              <Text className="text-primary-foreground/80">
-                Bank-grade security and compliance standards
-              </Text>
-            </Flex>
-            <Flex
-              direction="column"
-              align="center"
-              justify={"center"}
-              className={"max-w-xs mx-auto"}
-            >
-              <CheckCircle className="w-12 h-12 mb-4 text-primary-foreground/70" />
-              <Heading size="5" className="text-primary-foreground mb-2">
-                Proven Results
-              </Heading>
-              <Text className="text-primary-foreground/80">
-                Successful projects delivered on time
-              </Text>
-            </Flex>
-          </Grid>
-        </Container>
-      </Section>
+      <section className="section-shell py-16 md:py-20">
+        <div className="mb-8">
+          <h2 className="text-3xl font-semibold md:text-4xl">
+            Trusted by product and engineering leaders
+          </h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {testimonials.map((item) => (
+            <blockquote key={item.person} className="surface-card">
+              <p className="text-base leading-relaxed">
+                &ldquo;{item.quote}&rdquo;
+              </p>
+              <footer className="mt-4 text-sm text-muted-foreground">
+                {item.person}
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+      </section>
 
-      {/* Features Section */}
-      <Section id="services" className="py-20 px-4">
-        <Container size="4" className="py-32">
-          <Flex direction="column" align="center" className="text-center mb-16">
-            <Heading size="8" className="text-foreground mb-4">
-              Enterprise-Grade Solutions
-            </Heading>
-            <Text size="5" className="text-muted-foreground max-w-2xl">
-              We deliver cutting-edge technology solutions that scale with your
-              business
-            </Text>
-          </Flex>
-
-          <Grid
-            columns={{ initial: "1", md: "3" }}
-            gap="6"
-            className="max-w-6xl mx-auto"
-          >
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <Flex direction="column" align="center" justify="center" p="4">
-                <Box className="p-4 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                  <Globe className="w-8 h-8 text-primary" />
-                </Box>
-                <Heading size="6" className="text-foreground mb-4">
-                  Custom Web Apps
-                </Heading>
-                <Text className="text-muted-foreground leading-relaxed">
-                  Tailored platforms built for scale and speed. From MVP to
-                  enterprise, we craft solutions that grow with you.
-                </Text>
-              </Flex>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <Flex direction="column" align="center" p="4">
-                <Box className="p-4 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                  <Smartphone className="w-8 h-8 text-primary" />
-                </Box>
-                <Heading size="6" className="text-foreground mb-4">
-                  Mobile Solutions
-                </Heading>
-                <Text className="text-muted-foreground leading-relaxed">
-                  iOS, Android, and cross-platform expertise. Native performance
-                  with modern frameworks and seamless UX.
-                </Text>
-              </Flex>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <Flex direction="column" align="center" p="4">
-                <Box className="p-4 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                  <Users className="w-8 h-8 text-primary" />
-                </Box>
-                <Heading size="6" className="text-foreground mb-4">
-                  CTO-Level Guidance
-                </Heading>
-                <Text className="text-muted-foreground leading-relaxed">
-                  Architecture, DevOps, and tech leadership. Strategic guidance
-                  to make the right technology decisions.
-                </Text>
-              </Flex>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
-
-      {/* Trusted By Section */}
-      {/* <Section className="py-16 bg-primary/10 px-4">
-        <Container size="4">
-          <Flex direction="column" align="center" className="text-center mb-16">
-            <Heading size="8" className="text-foreground mb-4">
-              Trusted by Innovative Companies
-            </Heading>
-          </Flex>
-          <Grid
-            columns={{ initial: "2", md: "4" }}
-            gap="6"
-            className="items-center max-w-4xl mx-auto"
-          >
-            {[1, 2, 3, 4].map((i) => (
-              <Flex key={i} align="center" justify="center">
-                <Box className="py-4 px-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Text className="text-muted-foreground" weight="medium">
-                    Logo {i}
-                  </Text>
-                </Box>
-              </Flex>
-            ))}
-          </Grid>
-        </Container>
-      </Section> */}
-
-      {/* Testimonials Section */}
-      {/* <Section className="py-20 px-4">
-        <Container size="4">
-          <Flex direction="column" align="center" className="text-center mb-16">
-            <Heading size="8" className="text-foreground mb-4">
-              Trusted by Industry Leaders
-            </Heading>
-          </Flex>
-
-          <Grid
-            columns={{ initial: "1", md: "2" }}
-            gap="6"
-            className="max-w-4xl mx-auto"
-          >
-            <Card>
-              <Flex direction="column" p="4">
-                <Flex className="mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-accent fill-current"
-                    />
-                  ))}
-                </Flex>
-                <Text size="4" className="text-foreground mb-6 leading-relaxed">
-                  "Restacked transformed our legacy system into a modern,
-                  scalable platform. Their technical expertise and strategic
-                  guidance were invaluable."
-                </Text>
-                <Flex align="center">
-                  <Box className="px-3.5 py-3 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                    <Text weight="bold" className="text-primary">
-                      SJ
-                    </Text>
-                  </Box>
-                  <Flex direction={"column"}>
-                    <Text weight="bold" className="text-foreground">
-                      Sarah Johnson
-                    </Text>
-                    <Text className="text-muted-foreground">
-                      CTO, TechFlow Inc.
-                    </Text>
-                  </Flex>
-                </Flex>
-              </Flex>
-            </Card>
-
-            <Card className="p-8">
-              <Flex direction="column" p="4">
-                <Flex className="mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-accent fill-current"
-                    />
-                  ))}
-                </Flex>
-                <Text size="4" className="text-foreground mb-6 leading-relaxed">
-                  "The team delivered our mobile app ahead of schedule with
-                  exceptional quality. Their attention to detail and user
-                  experience is outstanding."
-                </Text>
-                <Flex align="center">
-                  <Box className="px-3 py-3 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                    <Text weight="bold" className="text-primary">
-                      MC
-                    </Text>
-                  </Box>
-                  <Flex direction={"column"}>
-                    <Text weight="bold" className="text-foreground">
-                      Michael Chen
-                    </Text>
-                    <Text className="text-muted-foreground">
-                      Founder, StartupXYZ
-                    </Text>
-                  </Flex>
-                </Flex>
-              </Flex>
-            </Card>
-          </Grid>
-        </Container>
-      </Section> */}
-
-      {/* Contact Form */}
-      <Section id="contact" className="py-20 bg-primary/10 px-4">
-        <Container size="3">
-          <Flex direction="column" align="center" className="text-center mb-12">
-            <Heading size="8" className="text-foreground mb-4">
-              Ready to Get Started?
-            </Heading>
-            <Text size="5" className="text-muted-foreground">
-              Let&apos;s discuss your project and how we can help you succeed
-            </Text>
-          </Flex>
-
-          <Card>
-            <CardContent>
-              <form className="space-y-6">
-                <div className="space-y-1">
-                  <Text
-                    as="label"
-                    size="3"
-                    weight="medium"
-                    className="text-foreground block"
-                  >
-                    Name
-                  </Text>
-                  <TextField.Root
-                    placeholder="Your full name"
-                    className="w-full"
-                  />
-                </div>
-
-                <div className="space-y-1">
-                  <Text
-                    as="label"
-                    size="3"
-                    weight="medium"
-                    className="text-foreground block"
-                  >
-                    Email
-                  </Text>
-                  <TextField.Root
-                    type="email"
-                    placeholder="your@email.com"
-                    className="w-full"
-                  />
-                </div>
-
-                <div className="space-y-1">
-                  <Text
-                    as="label"
-                    size="3"
-                    weight="medium"
-                    className="text-foreground block"
-                  >
-                    Message
-                  </Text>
-                  <TextArea
-                    placeholder="Tell us about your project..."
-                    rows={5}
-                    className="w-full"
-                  />
-                </div>
-
-                <Button type="submit" size="4">
-                  Send Message
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </Container>
-      </Section>
+      <section className="section-shell py-16 md:py-20">
+        <div className="rounded-3xl border border-primary/30 bg-primary/10 px-6 py-10 text-center md:px-12">
+          <h2 className="text-3xl font-semibold md:text-4xl">
+            Need to ship faster without sacrificing quality?
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            Tell us what you are building and where your team is blocked. We
+            will propose a practical path to launch.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Link href="/contact" className="cta-button">
+              Book a Consultation
+            </Link>
+            <Link href="/work" className="ghost-button">
+              Review Case Studies
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

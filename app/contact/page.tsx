@@ -1,359 +1,135 @@
-import { ArrowRight, Clock, Mail, MapPin, Phone } from "lucide-react";
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Section,
-  Text,
-  TextArea,
-  TextField,
-} from "@radix-ui/themes";
-import { CardContent, CardHeader } from "@/components/ui/card";
-
+import { Clock3, Mail, Phone, Users } from "lucide-react";
 import type { Metadata } from "next";
 
+import { siteConfig } from "@/lib/site";
+
+import { ContactForm } from "./ContactForm";
+
 export const metadata: Metadata = {
-  title: "Contact Us - Get Your Software Project Started | Restacked, LLC",
+  title: "Contact Restacked | Start Your Software Project",
   description:
-    "Ready to start your software project? Contact Restacked for a free consultation. We specialize in web development, mobile apps, and enterprise solutions.",
-  keywords:
-    "contact software developers, free consultation, web development quote, mobile app development, enterprise software, project estimate",
+    "Contact Restacked for custom software, AI consulting, and DevOps support. We typically respond within 24 hours and work with startups and enterprises.",
+  alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact Restacked, LLC - Start Your Software Project Today",
+    title: "Contact Restacked | Let\'s Build Something Impactful",
     description:
-      "Get in touch with our expert development team. Free consultation available for web, mobile, and enterprise software projects.",
-    type: "website",
+      "Share your project goals and timeline. Restacked provides software delivery support from strategy through launch.",
+    url: "/contact",
   },
 };
+
+const faqs = [
+  {
+    question: "How long does a typical project take?",
+    answer:
+      "Simple web applications usually take 4-8 weeks. Enterprise platforms and multi-team initiatives commonly run 3-6 months.",
+  },
+  {
+    question: "Do you work with startups and enterprise teams?",
+    answer:
+      "Yes. We support early-stage founders building MVPs and enterprise organizations modernizing existing systems.",
+  },
+  {
+    question: "Can you collaborate with our existing engineering team?",
+    answer:
+      "Absolutely. We often integrate directly with internal teams to provide extra capacity or specialized expertise.",
+  },
+  {
+    question: "When should we expect a response?",
+    answer:
+      "We review incoming requests quickly and usually respond within 24 hours.",
+  },
+];
 
 export default function ContactPage() {
   return (
     <>
-      {/* Hero Section */}
-      <Section className="py-20 bg-primary/10 p-4">
-        <Container size="4">
-          <Flex
-            direction="column"
-            align="center"
-            className="max-w-4xl mx-auto text-center"
-          >
-            <Heading size="9" className="text-foreground mb-6 leading-tight">
-              Let&apos;s Build Something{" "}
-              <span className="text-primary">Amazing Together</span>
-            </Heading>
-            <Text
-              size="6"
-              className="text-muted-foreground mb-10 max-w-3xl leading-relaxed"
-            >
-              Ready to transform your ideas into powerful software solutions?
-              Get in touch for a free consultation and project estimate.
-            </Text>
-          </Flex>
-        </Container>
-      </Section>
+      <section className="section-shell py-16 md:py-24">
+        <p className="mb-4 inline-flex rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+          Contact Restacked
+        </p>
+        <h1 className="max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">
+          Let&apos;s build something amazing together.
+        </h1>
+        <p className="mt-6 max-w-3xl text-lg text-muted-foreground">
+          Share your goals and constraints. We&apos;ll help scope the right
+          approach and outline a practical plan to get from idea to production.
+        </p>
+      </section>
 
-      {/* Contact Form & Info */}
-      <Section className="py-20 p-4">
-        <Container size="4">
-          <Grid
-            columns={{ initial: "1", lg: "3" }}
-            className="max-w-6xl mx-auto gap-12"
-          >
-            {/* Contact Form */}
-            <Box className="lg:col-span-2">
-              <Card className="p-8">
-                <div className="p-4">
-                  <Heading size="6" className="text-foreground mb-6">
-                    Send us a message
-                  </Heading>
-                  <form className="space-y-6">
-                    <Grid columns={{ initial: "1", sm: "2" }} gap="4">
-                      <div className="space-y-2">
-                        <Text
-                          as="label"
-                          size="3"
-                          weight="medium"
-                          className="text-foreground block"
-                        >
-                          First Name *
-                        </Text>
-                        <TextField.Root placeholder="John" required />
-                      </div>
-                      <div className="space-y-2">
-                        <Text
-                          as="label"
-                          size="3"
-                          weight="medium"
-                          className="text-foreground block"
-                        >
-                          Last Name *
-                        </Text>
-                        <TextField.Root placeholder="Doe" required />
-                      </div>
-                    </Grid>
+      <section className="section-shell pb-14 md:pb-20">
+        <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+          <ContactForm />
 
-                    <div className="space-y-2">
-                      <Text
-                        as="label"
-                        size="3"
-                        weight="medium"
-                        className="text-foreground block"
-                      >
-                        Email Address *
-                      </Text>
-                      <TextField.Root
-                        type="email"
-                        placeholder="john@company.com"
-                        required
-                      />
-                    </div>
+          <aside className="space-y-5">
+            <div className="surface-card">
+              <h2 className="text-xl font-semibold">Project Fit</h2>
+              <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <Users className="h-4 w-4 text-primary" />
+                  We partner with startups, scaleups, and enterprise teams.
+                </li>
+                <li className="flex items-center gap-2">
+                  <Clock3 className="h-4 w-4 text-primary" />
+                  Most engagements begin with a focused discovery and delivery
+                  plan.
+                </li>
+              </ul>
+            </div>
 
-                    <div className="space-y-2">
-                      <Text
-                        as="label"
-                        size="3"
-                        weight="medium"
-                        className="text-foreground block"
-                      >
-                        Company
-                      </Text>
-                      <TextField.Root placeholder="Your Company Name" />
-                    </div>
+            <div className="surface-card">
+              <h2 className="text-xl font-semibold">Direct Contact</h2>
+              <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+                <p className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-primary" />
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="hover:text-primary"
+                  >
+                    {siteConfig.email}
+                  </a>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-primary" />
+                  <a
+                    href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`}
+                    className="hover:text-primary"
+                  >
+                    {siteConfig.phone}
+                  </a>
+                </p>
+              </div>
+            </div>
 
-                    <div className="space-y-2">
-                      <Text
-                        as="label"
-                        size="3"
-                        weight="medium"
-                        className="text-foreground block"
-                      >
-                        Project Type
-                      </Text>
-                      <select className="w-full p-1.5 border border-border rounded text-sm text-foreground">
-                        <option value="">Select a service</option>
-                        <option value="web-development">Web Development</option>
-                        <option value="mobile-development">
-                          Mobile Development
-                        </option>
-                        <option value="consulting">Technical Consulting</option>
-                        <option value="devops">DevOps & Infrastructure</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
+            <div className="surface-card">
+              <h2 className="text-xl font-semibold">Engagement Models</h2>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li>Fixed-scope MVP builds</li>
+                <li>Dedicated product squad partnerships</li>
+                <li>Fractional CTO and architecture advisory</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
 
-                    <div className="space-y-2">
-                      <Text
-                        as="label"
-                        size="3"
-                        weight="medium"
-                        className="text-foreground block"
-                      >
-                        Project Budget
-                      </Text>
-                      <select className="w-full p-1.5 border border-border rounded text-foreground">
-                        <option value="">Select budget range</option>
-                        <option value="10k-25k">$10,000 - $25,000</option>
-                        <option value="25k-50k">$25,000 - $50,000</option>
-                        <option value="50k-100k">$50,000 - $100,000</option>
-                        <option value="100k+">$100,000+</option>
-                      </select>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Text
-                        as="label"
-                        size="3"
-                        weight="medium"
-                        className="text-foreground block"
-                      >
-                        Project Details *
-                      </Text>
-                      <TextArea
-                        placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
-                        rows={6}
-                        required
-                      />
-                    </div>
-
-                    <Button type="submit" size="4">
-                      Send Message
-                      <ArrowRight className="ml-2 w-5 h-5" />
-                    </Button>
-                  </form>
-                </div>
-              </Card>
-            </Box>
-
-            <Box>
-              {/* Contact Information */}
-              <Card className="p-8 mb-8">
-                <div className="p-4">
-                  <Heading size="5" className="text-foreground mb-6">
-                    Get in Touch
-                  </Heading>
-                  <Flex direction="column" gap="6">
-                    <Flex align="center" gap="4">
-                      <Box className="p-3 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <Mail className="w-5 h-5 text-primary" />
-                      </Box>
-                      <Flex direction={"column"}>
-                        <Text weight="medium" className="text-foreground">
-                          Email
-                        </Text>
-                        <Text size="2" className="text-muted-foreground">
-                          mike@restacked.dev
-                        </Text>
-                      </Flex>
-                    </Flex>
-
-                    <Flex align="center" gap="4">
-                      <Box className="p-3 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <Phone className="w-5 h-5 text-primary" />
-                      </Box>
-                      <Flex direction={"column"}>
-                        <Text weight="medium" className="text-foreground">
-                          Phone
-                        </Text>
-                        <Text size="2" className="text-muted-foreground">
-                          +1 (813) 295-9810
-                        </Text>
-                      </Flex>
-                    </Flex>
-
-                    <Flex align="center" gap="4">
-                      <Box className="p-3 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <MapPin className="w-5 h-5 text-primary" />
-                      </Box>
-                      <Flex direction={"column"}>
-                        <Text weight="medium" className="text-foreground">
-                          Location
-                        </Text>
-                        <Text size="2" className="text-muted-foreground">
-                          Remote & On-site
-                        </Text>
-                      </Flex>
-                    </Flex>
-
-                    <Flex align="center" gap="4">
-                      <Box className="p-3 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <Clock className="w-5 h-5 text-primary" />
-                      </Box>
-                      <Flex direction={"column"}>
-                        <Text weight="medium" className="text-foreground">
-                          Response Time
-                        </Text>
-                        <Text size="2" className="text-muted-foreground">
-                          Within 24 hours
-                        </Text>
-                      </Flex>
-                    </Flex>
-                  </Flex>
-                </div>
-              </Card>
-
-              <Card className="p-8">
-                <Flex direction="column" gap="2" className="p-4">
-                  <div>
-                    <Heading size="5" className="text-foreground mb-4">
-                      Free Consultation
-                    </Heading>
-                    <Text className="text-muted-foreground mb-4 leading-relaxed">
-                      Schedule a free 30-minute consultation to discuss your
-                      project requirements and get expert advice.
-                    </Text>
-                  </div>
-                  <Button variant="outline">Schedule Call</Button>
-                </Flex>
-              </Card>
-            </Box>
-          </Grid>
-        </Container>
-      </Section>
-
-      {/* FAQ Section */}
-      <Section className="py-20 bg-primary/10 p-4">
-        <Container size="4">
-          <Flex direction="column" align="center" className="text-center mb-16">
-            <Heading size="8" className="text-foreground mb-4">
-              Frequently Asked Questions
-            </Heading>
-            <Text size="5" className="text-muted-foreground max-w-2xl">
-              Common questions about our services and process
-            </Text>
-          </Flex>
-
-          <Grid
-            columns={{ initial: "1", md: "2" }}
-            gap="8"
-            className="max-w-4xl mx-auto"
-          >
-            <Card>
-              <CardHeader>
-                <Heading size="4" className="text-foreground">
-                  How long does a typical project take?
-                </Heading>
-              </CardHeader>
-              <CardContent>
-                <Text className="text-muted-foreground leading-relaxed">
-                  Project timelines vary based on complexity. Simple web
-                  applications typically take 4-8 weeks, while enterprise
-                  solutions may take 3-6 months. We provide detailed timelines
-                  during our initial consultation.
-                </Text>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <Heading size="4" className="text-foreground">
-                  Do you work with startups?
-                </Heading>
-              </CardHeader>
-              <CardContent>
-                <Text className="text-muted-foreground leading-relaxed">
-                  We love working with startups and understand the unique
-                  challenges they face. We offer flexible engagement models and
-                  can help you build an MVP or scale your existing product.
-                </Text>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <Heading size="4" className="text-foreground">
-                  What&apos;s included in your support?
-                </Heading>
-              </CardHeader>
-              <CardContent>
-                <Text className="text-muted-foreground leading-relaxed">
-                  We provide ongoing maintenance, bug fixes, security updates,
-                  and feature enhancements. Our support packages are tailored to
-                  your specific needs and can include 24/7 monitoring.
-                </Text>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <Heading size="4" className="text-foreground mb-3">
-                  Can you work with our existing team?
-                </Heading>
-              </CardHeader>
-              <CardContent>
-                <Text className="text-muted-foreground leading-relaxed">
-                  Yes! We often work as an extension of existing development
-                  teams, providing specialized expertise or additional capacity
-                  for specific projects or technologies.
-                </Text>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Container>
-      </Section>
+      <section className="section-shell pb-16 md:pb-24">
+        <div className="mb-8">
+          <h2 className="text-3xl font-semibold md:text-4xl">
+            Frequently asked questions
+          </h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {faqs.map((faq) => (
+            <article key={faq.question} className="surface-card">
+              <h3 className="text-lg font-semibold">{faq.question}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {faq.answer}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
     </>
   );
 }

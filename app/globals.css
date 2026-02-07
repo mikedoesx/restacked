@@ -4,78 +4,149 @@
 
 @layer base {
   :root {
-    --background: 240 6% 98%; /* subtle light grey */
-    --foreground: 240 5% 10%; /* dark slate */
+    --font-body: "Avenir Next", "Nunito Sans", "Segoe UI", sans-serif;
+    --font-display: "Sora", "Avenir Next Demi Bold", "Trebuchet MS", sans-serif;
+    --background: 204 45% 97%;
+    --foreground: 220 44% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 240 5% 10%;
+    --card-foreground: 220 44% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 5% 10%;
-    --primary: 238 60% 55%; /* Indigo-600 */
+    --popover-foreground: 220 44% 11%;
+    --primary: 250 67% 56%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 230 13% 20%; /* Slate-800 */
-    --secondary-foreground: 210 20% 95%;
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 5% 40%;
-    --accent: 185 90% 60%; /* Cyan-500 */
-    --accent-foreground: 240 5% 10%;
-    --destructive: 0 85% 60%;
+    --secondary: 246 30% 18%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 32% 93%;
+    --muted-foreground: 216 20% 33%;
+    --accent: 266 84% 66%;
+    --accent-foreground: 220 44% 11%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 240 6% 90%;
-    --input: 240 6% 85%;
-    --ring: 238 60% 55%;
-    --chart-1: 210 90% 50%;
-    --chart-2: 15 90% 60%;
-    --chart-3: 95 60% 50%;
-    --chart-4: 290 70% 55%;
-    --chart-5: 350 75% 60%;
-    --radius: 0.5rem;
-    --sidebar-background: 230 13% 10%;
-    --sidebar-foreground: 240 10% 95%;
-    --sidebar-primary: 238 60% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 185 90% 60%;
-    --sidebar-accent-foreground: 240 5% 10%;
-    --sidebar-border: 240 4% 30%;
-    --sidebar-ring: 238 60% 55%;
+    --border: 214 31% 86%;
+    --input: 214 31% 86%;
+    --ring: 250 67% 56%;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 230 13% 10%;
-    --foreground: 240 10% 95%;
-    --card: 230 13% 15%;
-    --card-foreground: 240 10% 95%;
-    --popover: 230 13% 15%;
-    --popover-foreground: 240 10% 95%;
-    --primary: 238 60% 55%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 240 5% 20%;
-    --secondary-foreground: 210 20% 95%;
-    --muted: 240 5% 20%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 185 90% 60%;
-    --accent-foreground: 240 5% 10%;
-    --destructive: 0 85% 60%;
+    --background: 210 59% 8%;
+    --foreground: 210 40% 96%;
+    --card: 210 50% 11%;
+    --card-foreground: 210 40% 96%;
+    --popover: 210 50% 11%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 252 82% 72%;
+    --primary-foreground: 252 32% 13%;
+    --secondary: 247 24% 18%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 217 26% 18%;
+    --muted-foreground: 215 20% 71%;
+    --accent: 272 88% 72%;
+    --accent-foreground: 210 59% 8%;
+    --destructive: 0 73% 56%;
     --destructive-foreground: 0 0% 100%;
-    --border: 240 4% 30%;
-    --input: 240 4% 25%;
-    --ring: 238 60% 55%;
+    --border: 218 24% 27%;
+    --input: 218 24% 27%;
+    --ring: 252 82% 72%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display), sans-serif;
+  }
+
+  p,
+  li,
+  a,
+  button,
+  label,
+  input,
+  textarea,
+  select {
+    font-family: var(--font-body), sans-serif;
+  }
 }
 
-a:hover,
-button:hover {
-  cursor: pointer;
+@layer utilities {
+  .site-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(
+        34rem 34rem at 90% -10%,
+        hsl(var(--accent) / 0.16),
+        transparent
+      ),
+      radial-gradient(
+        28rem 28rem at -10% 20%,
+        hsl(var(--primary) / 0.14),
+        transparent
+      ),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
+  }
+
+  .section-shell {
+    @apply mx-auto w-full max-w-6xl px-4;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-border/80 bg-card/85 p-6 shadow-sm backdrop-blur-sm transition;
+  }
+
+  .surface-card:hover {
+    @apply -translate-y-0.5 border-primary/30 shadow-lg;
+  }
+
+  .cta-button {
+    @apply inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90;
+  }
+
+  .ghost-button {
+    @apply inline-flex items-center justify-center rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition hover:border-primary/40 hover:text-primary;
+  }
+
+  .fade-up {
+    animation: fade-up 620ms ease-out both;
+  }
+
+  .fade-in {
+    animation: fade-in 520ms ease-out both;
+  }
 }
 
-button:disabled {
-  cursor: not-allowed;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
