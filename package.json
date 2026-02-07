@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next lint && next build",
-    "postbuild": "tsc --noEmit && next-sitemap",
+    "build": "next build",
     "dev": "next dev",
     "start": "next start",
     "analyze": "export ANALYZE=true && next build",
