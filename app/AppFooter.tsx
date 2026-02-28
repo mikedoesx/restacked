@@ -84,12 +84,12 @@ export function AppFooter() {
             ))}
             <li>
               <a
-                href={siteConfig.clausiblyUrl}
+                href={siteConfig.varentusUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1 transition hover:text-white"
               >
-                Clausibly
+                Varentus
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
             </li>

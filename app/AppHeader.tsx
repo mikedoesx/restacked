@@ -14,7 +14,7 @@ export function AppHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(12,11,25,0.94),rgba(10,10,22,0.9))]">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
         <Link href="/" aria-label="Go to Restacked home" className="shrink-0">
           <Image
@@ -43,7 +43,7 @@ export function AppHeader() {
           <ThemeToggle />
           <Link
             href="/contact"
-            className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:opacity-90"
+            className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[0_10px_30px_rgba(88,68,214,0.18)] transition hover:opacity-90 dark:shadow-[0_14px_36px_rgba(124,97,255,0.28)]"
           >
             Start Project
           </Link>
@@ -57,7 +57,7 @@ export function AppHeader() {
             aria-controls="mobile-nav"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen((open) => !open)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground dark:border-white/10 dark:bg-white/5"
           >
             {menuOpen ? (
               <XIcon className="h-4 w-4" />
@@ -116,8 +116,8 @@ function NavLinks({
               "rounded-lg px-3 py-2 text-sm font-medium transition",
               mobile && "text-base",
               active
-                ? "bg-primary/10 text-primary"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                ? "bg-primary/10 text-primary dark:bg-primary/15"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground dark:hover:bg-white/5",
             )}
           >
             {item.label}

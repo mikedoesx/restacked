@@ -1,10 +1,9 @@
 import {
   ArrowRight,
   BriefcaseBusiness,
-  FileSearch2,
-  Gavel,
-  Sparkles,
-  TriangleAlert,
+  ChartNoAxesCombined,
+  ShieldCheck,
+  Waypoints,
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -12,55 +11,87 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Products | Clausibly and Upcoming Restacked Tools",
+  title: "Products | Varentus and Upcoming Restacked Tools",
   description:
-    "Explore Restacked products including Clausibly, our AI-powered contract analysis platform for businesses, freelancers, and legal teams.",
+    "Explore Restacked products including Varentus, our AI governance platform for SMB leaders, MSPs, and compliance teams.",
   alternates: { canonical: "/products" },
   openGraph: {
-    title: "Restacked Products | Clausibly and Upcoming Launches",
+    title: "Restacked Products | Varentus and Upcoming Launches",
     description:
       "Productized software from Restacked with a focus on practical AI and business workflow acceleration.",
     url: "/products",
   },
 };
 
-const clausiblyFeatures = [
+const varentusFeatures = [
   {
-    title: "Natural-language summaries",
+    title: "AI Tool Discovery",
     description:
-      "Upload complex agreements and receive plain-English explanations your team can act on quickly.",
-    icon: FileSearch2,
+      "Surface which AI tools employees use across the business so leadership can understand exposure before incidents happen.",
+    icon: Waypoints,
   },
   {
-    title: "Risk alerts",
+    title: "Policy Builder & Attestation",
     description:
-      "Surface key clauses and risk areas early to improve review confidence before signatures.",
-    icon: TriangleAlert,
+      "Create enforceable AI usage policies, collect acknowledgments, and track who has reviewed the rules.",
+    icon: ShieldCheck,
   },
   {
-    title: "Actionable insights",
+    title: "Compliance Snapshot",
     description:
-      "Get structured highlights that speed up business, legal, and procurement decision-making.",
-    icon: Sparkles,
+      "Generate a single-page governance view with exportable reporting mapped to emerging AI regulations.",
+    icon: ChartNoAxesCombined,
   },
 ];
 
 const pricingTiers = [
   {
     name: "Starter",
-    audience: "Freelancers and small teams",
-    summary: "Great for occasional contract reviews and solo operators.",
+    price: "$199/mo",
+    annualPrice: "$1,910/year",
+    audience: "Getting AI governance live quickly",
+    summary:
+      "Discovery, policy publishing, attestations, and baseline compliance workflows for teams getting started.",
+    features: [
+      "Workspace discovery",
+      "Approve / restrict / block registry controls",
+      "Unlimited attestations",
+      "1 published policy",
+      "1 training module",
+      "1 compliance export per month",
+    ],
   },
   {
     name: "Growth",
-    audience: "Growing businesses",
+    price: "$399/mo",
+    annualPrice: "$3,830/year",
+    audience: "Running governance as an operating process",
     summary:
-      "Designed for recurring contract workflows and cross-functional teams.",
+      "Adds ongoing governance depth for teams that need recurring policy, training, and reporting workflows.",
+    features: [
+      "Everything in Starter",
+      "Unlimited policies",
+      "Unlimited training modules",
+      "Unlimited attestations and exports",
+      "Weekly scheduled compliance snapshots",
+    ],
+    recommended: true,
   },
   {
-    name: "Enterprise",
-    audience: "Legal and procurement organizations",
-    summary: "Advanced governance and higher-volume review support.",
+    name: "Scale",
+    price: "$749/mo",
+    annualPrice: "$7,190/year",
+    audience: "Mature programs needing deeper control",
+    summary:
+      "Designed for organizations that need extended retention, API access, and higher-touch governance support.",
+    features: [
+      "Everything in Growth",
+      "Extended retention configuration",
+      "Chrome extension coverage",
+      "API access",
+      "MSP mode",
+      "Priority support",
+    ],
   },
 ];
 
@@ -89,8 +120,8 @@ export default function ProductsPage() {
         </h1>
         <p className="mt-6 max-w-3xl text-lg text-muted-foreground">
           Alongside our bespoke software services, Restacked builds products
-          that solve focused operational problems. Clausibly is our first
-          flagship platform.
+          that solve focused operational problems. Varentus is our featured
+          platform for AI governance and compliance readiness.
         </p>
       </section>
 
@@ -99,29 +130,31 @@ export default function ProductsPage() {
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-3 py-1 text-xs font-semibold text-primary">
-                <Gavel className="h-3.5 w-3.5" />
+                <ShieldCheck className="h-3.5 w-3.5" />
                 Featured Product
               </p>
-              <h2 className="mt-4 text-3xl font-semibold">Clausibly</h2>
+              <h2 className="mt-4 text-3xl font-semibold">Varentus</h2>
               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-                Clausibly helps businesses, freelancers, and legal teams analyze
-                contracts faster with AI-powered summarization, clause-level
-                risk alerts, and clear next-step recommendations.
+                Varentus helps SMB leaders see every AI tool their team uses,
+                set the rules, and prove compliance. It packages discovery,
+                policy creation, approved-tool governance, attestation, and
+                reporting into a self-serve setup that can be live in under an
+                hour.
               </p>
             </div>
             <a
-              href={siteConfig.clausiblyUrl}
+              href={siteConfig.varentusUrl}
               target="_blank"
               rel="noreferrer"
               className="cta-button"
             >
-              Try Clausibly
+              Visit Varentus
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {clausiblyFeatures.map((feature) => (
+            {varentusFeatures.map((feature) => (
               <div
                 key={feature.title}
                 className="rounded-xl border border-border bg-card p-4"
@@ -143,20 +176,47 @@ export default function ProductsPage() {
         <div className="mb-8">
           <h2 className="text-3xl font-semibold md:text-4xl">Pricing model</h2>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Clausibly uses subscription tiers so teams can start small and scale
-            usage as contract volume grows.
+            Varentus uses three paid plans built around the maturity of your AI
+            governance program, from getting started quickly to operating with
+            deeper control and support.
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {pricingTiers.map((tier) => (
             <article key={tier.name} className="surface-card">
-              <h3 className="text-xl font-semibold">{tier.name}</h3>
-              <p className="mt-2 text-sm font-medium text-primary">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <h3 className="text-xl font-semibold">{tier.name}</h3>
+                  <p className="mt-2 text-2xl font-semibold text-primary">
+                    {tier.price}
+                  </p>
+                  <p className="mt-1 text-xs uppercase tracking-wide text-muted-foreground">
+                    {tier.annualPrice}
+                  </p>
+                </div>
+                {tier.recommended ? (
+                  <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                    Recommended
+                  </span>
+                ) : null}
+              </div>
+              <p className="mt-4 text-sm font-medium text-primary">
                 {tier.audience}
               </p>
               <p className="mt-3 text-sm text-muted-foreground">
                 {tier.summary}
               </p>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                {tier.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2">
+                    <span
+                      className="mt-1 h-1.5 w-1.5 rounded-full bg-primary"
+                      aria-hidden
+                    />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>

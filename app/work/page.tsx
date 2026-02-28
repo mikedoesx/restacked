@@ -16,7 +16,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Work: Case Studies in SaaS, AI, and Enterprise Software",
   description:
-    "Review Restacked case studies including Clausibly and industry-focused software engagements across fintech, healthcare, e-learning, and supply chain.",
+    "Review Restacked case studies including Varentus and industry-focused software engagements across fintech, healthcare, e-learning, and supply chain.",
   alternates: { canonical: "/work" },
   openGraph: {
     title: "Restacked Work | Real Case Studies and Delivery Outcomes",
@@ -40,29 +40,30 @@ type CaseStudy = {
 
 const caseStudies: CaseStudy[] = [
   {
-    title: "Clausibly",
-    industry: "LegalTech SaaS",
+    title: "Varentus",
+    industry: "AI Governance SaaS",
     label: "Real Project",
     problem:
-      "Contracts were slowing business decisions because legal language was dense and review workflows required manual interpretation.",
+      "SMBs were facing widespread shadow AI usage, low policy awareness, and mounting regulatory pressure without an affordable self-serve governance platform.",
     solution:
-      "Built an AI-powered contract analysis SaaS that transforms raw agreements into plain-language summaries with surfaced risks and action points.",
+      "Built an AI governance platform that combines tool discovery, policy creation, approved tool controls, employee attestation, training, and compliance reporting in one self-serve workflow.",
     features: [
-      "Natural-language contract summaries",
-      "Risk alerting and clause highlighting",
-      "Workflow-ready outputs for business teams",
+      "AI tool discovery and usage visibility",
+      "Policy builder with attestation workflows",
+      "Compliance snapshots and approved tool registry",
     ],
     technologies: [
       "Next.js",
       "TypeScript",
-      "Node.js",
-      "AI APIs",
-      "Cloud Infrastructure",
+      "PostgreSQL",
+      "OpenAI",
+      "Stripe",
+      "Google Workspace API",
     ],
     outcomes: [
-      "Reduced contract review effort for non-legal teams",
-      "Improved visibility into risk before signing",
-      "Created a repeatable SaaS foundation for ongoing feature growth",
+      "Defined a clear AI governance product architecture for SMBs",
+      "Packaged policy, discovery, and compliance workflows into a single platform direction",
+      "Created a launch-ready SaaS foundation aligned with self-serve adoption goals",
     ],
     icon: FileText,
   },
@@ -156,7 +157,7 @@ export default function WorkPage() {
         </h1>
         <p className="mt-6 max-w-3xl text-lg text-muted-foreground">
           Our case studies use a consistent structure so teams can quickly
-          understand context, execution, and outcomes. Clausibly is featured as
+          understand context, execution, and outcomes. Varentus is featured as
           an active product built by Restacked.
         </p>
       </section>
@@ -275,14 +276,14 @@ export default function WorkPage() {
                 </div>
               </div>
 
-              {study.title === "Clausibly" ? (
+              {study.title === "Varentus" ? (
                 <a
-                  href={siteConfig.clausiblyUrl}
+                  href={siteConfig.varentusUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-6 inline-flex items-center text-sm font-semibold text-primary transition hover:opacity-80"
                 >
-                  Visit Clausibly
+                  Visit Varentus
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </a>
               ) : null}

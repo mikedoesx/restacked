@@ -29,25 +29,25 @@
   }
 
   .dark {
-    --background: 210 59% 8%;
-    --foreground: 210 40% 96%;
-    --card: 210 50% 11%;
-    --card-foreground: 210 40% 96%;
-    --popover: 210 50% 11%;
-    --popover-foreground: 210 40% 96%;
-    --primary: 252 82% 72%;
-    --primary-foreground: 252 32% 13%;
-    --secondary: 247 24% 18%;
-    --secondary-foreground: 210 40% 96%;
-    --muted: 217 26% 18%;
-    --muted-foreground: 215 20% 71%;
-    --accent: 272 88% 72%;
-    --accent-foreground: 210 59% 8%;
+    --background: 255 31% 8%;
+    --foreground: 240 30% 96%;
+    --card: 252 26% 12%;
+    --card-foreground: 240 30% 96%;
+    --popover: 252 26% 12%;
+    --popover-foreground: 240 30% 96%;
+    --primary: 257 86% 73%;
+    --primary-foreground: 252 40% 13%;
+    --secondary: 250 21% 18%;
+    --secondary-foreground: 240 30% 96%;
+    --muted: 249 16% 17%;
+    --muted-foreground: 246 16% 76%;
+    --accent: 278 90% 74%;
+    --accent-foreground: 255 31% 8%;
     --destructive: 0 73% 56%;
     --destructive-foreground: 0 0% 100%;
-    --border: 218 24% 27%;
-    --input: 218 24% 27%;
-    --ring: 252 82% 72%;
+    --border: 252 18% 24%;
+    --input: 252 18% 24%;
+    --ring: 257 86% 73%;
   }
 
   * {
@@ -102,6 +102,31 @@
       linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
   }
 
+  .dark .site-background {
+    background:
+      radial-gradient(
+        42rem 30rem at 92% 2%,
+        hsl(var(--accent) / 0.16),
+        transparent
+      ),
+      radial-gradient(
+        34rem 26rem at 8% 18%,
+        hsl(var(--primary) / 0.12),
+        transparent
+      ),
+      radial-gradient(
+        28rem 20rem at 50% 0%,
+        hsl(222 70% 20% / 0.18),
+        transparent 70%
+      ),
+      linear-gradient(
+        180deg,
+        hsl(252 40% 8%),
+        hsl(246 44% 7%) 45%,
+        hsl(255 38% 6%)
+      );
+  }
+
   .section-shell {
     @apply mx-auto w-full max-w-6xl px-4;
   }
@@ -114,12 +139,30 @@
     @apply -translate-y-0.5 border-primary/30 shadow-lg;
   }
 
+  .dark .surface-card {
+    background-color: hsl(var(--card) / 0.92);
+    @apply border-white/10 shadow-[0_18px_50px_rgba(5,4,16,0.45)];
+  }
+
+  .dark .surface-card:hover {
+    @apply border-primary/35 shadow-[0_24px_65px_rgba(9,7,24,0.62)];
+  }
+
   .cta-button {
     @apply inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90;
   }
 
   .ghost-button {
     @apply inline-flex items-center justify-center rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition hover:border-primary/40 hover:text-primary;
+  }
+
+  .dark .ghost-button {
+    background-color: rgb(255 255 255 / 0.05);
+    @apply border-white/10;
+  }
+
+  .dark .ghost-button:hover {
+    background-color: rgb(255 255 255 / 0.08);
   }
 
   .fade-up {

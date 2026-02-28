@@ -4,7 +4,7 @@ export const siteConfig = {
   url: "https://restacked.dev",
   email: "mike@restacked.dev",
   phone: "+1 (813) 295-9810",
-  clausiblyUrl: "https://clausibly.com",
+  varentusUrl: "https://varentus.com",
 };
 
 export const navItems = [

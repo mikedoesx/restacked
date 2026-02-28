@@ -4,13 +4,13 @@ Status updated: February 7, 2026
 
 ## Overview
 
-Restacked, LLC is a full-stack software engineering studio for startups and enterprises. This PRD defines the marketing-site revamp scope: rewrite messaging, improve visual identity, strengthen SEO, promote Clausibly, and improve conversion-oriented UX.
+Restacked, LLC is a full-stack software engineering studio for startups and enterprises. This PRD defines the marketing-site revamp scope: rewrite messaging, improve visual identity, strengthen SEO, promote Varentus, and improve conversion-oriented UX.
 
 ## Goals and Objectives
 
 - [x] Modernize site voice and SEO with benefit-first copy targeting founders, CTOs, product managers, and business owners.
 - [x] Showcase experience and trust signals: 100+ projects, 50+ clients, 10+ years, 24/7 support.
-- [x] Promote products and services, including Clausibly and core service offerings.
+- [x] Promote products and services, including Varentus and core service offerings.
 - [x] Improve visual appeal with a premium, non-template feel.
 - [x] Preserve technical integrity with responsive, accessible, SEO-aware implementation.
 
@@ -18,13 +18,13 @@ Restacked, LLC is a full-stack software engineering studio for startups and ente
 
 ### Content Rewrite
 
-- [x] Home page rewritten with stronger hero promise, clear value proposition, differentiators, Clausibly spotlight, and clear CTAs.
+- [x] Home page rewritten with stronger hero promise, clear value proposition, differentiators, Varentus spotlight, and clear CTAs.
 - [x] Services page expanded with detailed offerings and benefit-driven language.
-- [x] Work page converted to case-study format and includes Clausibly as a real project.
+- [x] Work page converted to case-study format and includes Varentus as a real project.
 - [x] About page rewritten with mission, values, approach, and proof stats.
 - [x] Contact page copy improved with response-time and timeline expectations.
 - [x] FAQs included on Contact page, including collaboration with existing teams.
-- [x] New Products page added with Clausibly details and future-product placeholders.
+- [x] New Products page added with Varentus details and future-product placeholders.
 
 ### Visual and Theming Requirements
 
@@ -77,9 +77,9 @@ Restacked, LLC is a full-stack software engineering studio for startups and ente
 
 ### Phase 4 - Products and Service Promotion
 
-- [x] Products page created and Clausibly promoted.
+- [x] Products page created and Varentus promoted.
 - [x] Products link integrated into main navigation and footer.
-- [x] Work page updated with Clausibly case study.
+- [x] Work page updated with Varentus case study.
 - [ ] Dedicated service landing pages for each service keyword cluster not yet created.
 
 ### Phase 5 - Implementation and Engineering

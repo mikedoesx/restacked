@@ -126,35 +126,33 @@ export default function HomePage() {
           </div>
 
           <div className="surface-card fade-in">
-            <h2 className="text-xl font-semibold">
-              Clausibly Product Spotlight
-            </h2>
+            <h2 className="text-xl font-semibold">Varentus Product Spotlight</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Clausibly is our AI-powered contract analysis platform that turns
-              dense legal language into plain-English summaries, risk alerts,
-              and actionable next steps.
+              Varentus is our AI governance platform for SMBs that helps teams
+              discover AI tool usage, set enforceable policies, and prove
+              compliance readiness without a heavy implementation cycle.
             </p>
             <ul className="mt-5 space-y-3 text-sm">
               <li className="inline-flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-primary" />
-                Instant clause-level summaries
+                AI tool discovery across the organization
               </li>
               <li className="inline-flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-primary" />
-                Risk detection for legal and business teams
+                Policy builder and employee attestation
               </li>
               <li className="inline-flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-primary" />
-                Subscription model for freelancers to enterprises
+                Compliance snapshots mapped to real regulations
               </li>
             </ul>
             <a
-              href={siteConfig.clausiblyUrl}
+              href={siteConfig.varentusUrl}
               target="_blank"
               rel="noreferrer"
               className="mt-6 inline-flex items-center text-sm font-semibold text-primary transition hover:opacity-80"
             >
-              Visit clausibly.com
+              Visit varentus.com
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </div>

@@ -24,9 +24,9 @@ Need strategic guidance? We provide CTO‑level insight, code audits, architectu
 
 ## Products
 
-### Clausibly — Contract Analysis Simplified
+### Varentus — AI Governance for SMBs
 
-Clausibly is our flagship SaaS platform that uses AI to turn dense contracts into clear, actionable summaries. Upload your agreement and get plain‑language explanations, risk alerts and key clause highlights in seconds. Clausibly helps freelancers, small businesses and legal teams save time and reduce risk. Learn more at [clausibly.com](https://clausibly.com).
+Varentus is our flagship AI governance platform for SMBs. It helps leaders discover which AI tools employees use, create and enforce AI usage policies, manage approved tools, track attestation, and generate compliance-ready reporting. The product is built for self-serve setup and practical oversight without enterprise-platform complexity. Learn more at [varentus.com](https://varentus.com).
 
 Stay tuned for more Restacked products launching soon!
 
@@ -60,4 +60,4 @@ This repo live on Render.
 
 1. Clone the repository and install dependencies with `npm install`.
 2. Push updates to trigger automatic deployments via Render.
-3. For project requirements and task breakdowns, see `PRD.md`.
+3. Review the relevant project documentation and implementation notes before making changes.
