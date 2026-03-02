@@ -75,13 +75,14 @@ const organizationSchema = {
   url: siteConfig.url,
   email: siteConfig.email,
   telephone: siteConfig.phone,
-  sameAs: [siteConfig.varentusUrl],
+  sameAs: [siteConfig.varentusUrl, siteConfig.reachUrl],
   knowsAbout: [
     "AI development",
     "custom software",
     "DevOps",
     "AI governance",
     "AI compliance",
+    "social lead generation",
     "SaaS engineering",
   ],
 };

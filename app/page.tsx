@@ -11,7 +11,8 @@ import {
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { companyStats, siteConfig } from "@/lib/site";
+import { featuredProducts } from "@/lib/featured-products";
+import { companyStats } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "AI Development & Custom Software for Startups and Enterprises",
@@ -125,36 +126,49 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="surface-card fade-in">
-            <h2 className="text-xl font-semibold">Varentus Product Spotlight</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Varentus is our AI governance platform for SMBs that helps teams
-              discover AI tool usage, set enforceable policies, and prove
-              compliance readiness without a heavy implementation cycle.
+          <div className="fade-in">
+            <p className="mb-4 inline-flex rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+              Featured products
             </p>
-            <ul className="mt-5 space-y-3 text-sm">
-              <li className="inline-flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                AI tool discovery across the organization
-              </li>
-              <li className="inline-flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                Policy builder and employee attestation
-              </li>
-              <li className="inline-flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                Compliance snapshots mapped to real regulations
-              </li>
-            </ul>
-            <a
-              href={siteConfig.varentusUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center text-sm font-semibold text-primary transition hover:opacity-80"
-            >
-              Visit varentus.com
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
+            <div className="grid gap-4">
+              {featuredProducts.map((product) => (
+                <article key={product.slug} className="surface-card">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h2 className="text-xl font-semibold">{product.name}</h2>
+                      <p className="mt-2 inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                        {product.statusLabel}
+                      </p>
+                    </div>
+                    <a
+                      href={product.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center text-sm font-semibold text-primary transition hover:opacity-80"
+                    >
+                      {product.ctaLabel}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {product.summary}
+                  </p>
+                  <ul className="mt-5 space-y-3 text-sm">
+                    {product.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {product.roadmapNote ? (
+                    <p className="mt-4 text-xs font-medium text-muted-foreground">
+                      {product.roadmapNote}
+                    </p>
+                  ) : null}
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -5,6 +5,7 @@ export const siteConfig = {
   email: "mike@restacked.dev",
   phone: "+1 (813) 295-9810",
   varentusUrl: "https://varentus.com",
+  reachUrl: "https://reach.restacked.dev",
 };
 
 export const navItems = [

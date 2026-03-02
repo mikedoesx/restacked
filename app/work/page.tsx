@@ -3,9 +3,7 @@ import {
   ExternalLink,
   FileText,
   FlaskConical,
-  HeartPulse,
-  Landmark,
-  PackageSearch,
+  Waypoints,
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -14,9 +12,9 @@ import type { ComponentType } from "react";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Work: Case Studies in SaaS, AI, and Enterprise Software",
+  title: "Work: Real Product Case Studies",
   description:
-    "Review Restacked case studies including Varentus and industry-focused software engagements across fintech, healthcare, e-learning, and supply chain.",
+    "Review real Restacked product case studies, including Varentus and Reach.",
   alternates: { canonical: "/work" },
   openGraph: {
     title: "Restacked Work | Real Case Studies and Delivery Outcomes",
@@ -29,20 +27,22 @@ export const metadata: Metadata = {
 type CaseStudy = {
   title: string;
   industry: string;
-  label: "Real Project" | "Example Project";
+  label: "Built by Restacked";
   problem: string;
   solution: string;
   features: string[];
   technologies: string[];
   outcomes: string[];
   icon: ComponentType<{ className?: string }>;
+  externalUrl?: string;
+  externalLabel?: string;
 };
 
 const caseStudies: CaseStudy[] = [
   {
     title: "Varentus",
     industry: "AI Governance SaaS",
-    label: "Real Project",
+    label: "Built by Restacked",
     problem:
       "SMBs were facing widespread shadow AI usage, low policy awareness, and mounting regulatory pressure without an affordable self-serve governance platform.",
     solution:
@@ -66,74 +66,31 @@ const caseStudies: CaseStudy[] = [
       "Created a launch-ready SaaS foundation aligned with self-serve adoption goals",
     ],
     icon: FileText,
+    externalUrl: siteConfig.varentusUrl,
+    externalLabel: "Visit Varentus",
   },
   {
-    title: "FinTech Operations Platform",
-    industry: "FinTech",
-    label: "Example Project",
+    title: "Reach",
+    industry: "Social Lead Generation",
+    label: "Built by Restacked",
     problem:
-      "A scaling finance startup needed to replace fragmented dashboards and manual reconciliation workflows.",
+      "Operators and GTM teams needed a reliable way to monitor high-intent social conversations, prioritize leads, and prevent follow-up work from stalling.",
     solution:
-      "Designed a secure internal platform consolidating transaction monitoring, reporting, and alert workflows.",
+      "Built a Reddit-first social lead engine with deterministic scoring, dedupe workflows, and structured pipeline operations that support auditable outreach execution.",
     features: [
-      "Role-based access controls",
-      "Automated reconciliation",
-      "Operational analytics dashboards",
+      "Configurable subreddit monitoring with keyword-group matching",
+      "Deterministic lead scoring, duplicate handling, and queue triage",
+      "Follow-up tasks, activity timeline events, and dashboard analytics",
     ],
-    technologies: ["React", "Node.js", "PostgreSQL", "AWS"],
+    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Telegram"],
     outcomes: [
-      "Faster issue triage for operations teams",
-      "Reduced manual reporting overhead",
-      "Higher confidence in data quality",
+      "Reduced manual monitoring overhead for social lead discovery",
+      "Improved lead workflow consistency across queue, stage, and tasks",
+      "Established a roadmap-ready foundation for X and LinkedIn expansion",
     ],
-    icon: Landmark,
-  },
-  {
-    title: "Care Coordination System",
-    industry: "Healthcare",
-    label: "Example Project",
-    problem:
-      "Care teams struggled with disconnected systems for patient records, scheduling, and communication.",
-    solution:
-      "Implemented a centralized care coordination experience with role-based workflows and secure messaging.",
-    features: [
-      "Appointment orchestration",
-      "Clinical workflow views",
-      "Secure provider collaboration",
-    ],
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "HIPAA-ready deployment patterns",
-    ],
-    outcomes: [
-      "Improved coordination between care stakeholders",
-      "Lower scheduling friction",
-      "Better visibility into patient progress",
-    ],
-    icon: HeartPulse,
-  },
-  {
-    title: "Supply Chain Insight Hub",
-    industry: "Supply Chain",
-    label: "Example Project",
-    problem:
-      "Operations teams lacked real-time inventory and delivery visibility across multiple systems.",
-    solution:
-      "Delivered a multi-source analytics layer with predictive alerts and executive reporting dashboards.",
-    features: [
-      "Live inventory views",
-      "Delay risk alerts",
-      "Custom planning dashboards",
-    ],
-    technologies: ["React", "Python", "Data Pipelines", "Cloud Monitoring"],
-    outcomes: [
-      "Faster exception handling",
-      "Improved planning visibility",
-      "Higher on-time delivery confidence",
-    ],
-    icon: PackageSearch,
+    icon: Waypoints,
+    externalUrl: siteConfig.reachUrl,
+    externalLabel: "Visit Reach",
   },
 ];
 
@@ -153,12 +110,12 @@ export default function WorkPage() {
           Portfolio and case studies
         </p>
         <h1 className="max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">
-          Real delivery stories across SaaS and enterprise software.
+          Real product case studies built by Restacked.
         </h1>
         <p className="mt-6 max-w-3xl text-lg text-muted-foreground">
           Our case studies use a consistent structure so teams can quickly
-          understand context, execution, and outcomes. Varentus is featured as
-          an active product built by Restacked.
+          understand context, execution, and outcomes. Varentus and Reach are
+          featured as active products built by Restacked.
         </p>
       </section>
 
@@ -195,11 +152,7 @@ export default function WorkPage() {
                   <h2 className="mt-4 text-2xl font-semibold">{study.title}</h2>
                 </div>
                 <span
-                  className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                    study.label === "Real Project"
-                      ? "bg-primary/15 text-primary"
-                      : "bg-muted text-muted-foreground"
-                  }`}
+                  className="rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary"
                 >
                   {study.label}
                 </span>
@@ -276,14 +229,14 @@ export default function WorkPage() {
                 </div>
               </div>
 
-              {study.title === "Varentus" ? (
+              {study.externalUrl ? (
                 <a
-                  href={siteConfig.varentusUrl}
+                  href={study.externalUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-6 inline-flex items-center text-sm font-semibold text-primary transition hover:opacity-80"
                 >
-                  Visit Varentus
+                  {study.externalLabel ?? `Visit ${study.title}`}
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </a>
               ) : null}

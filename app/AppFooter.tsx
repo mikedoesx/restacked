@@ -52,6 +52,16 @@ export function AppFooter() {
             <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
           <Dot className="h-4 w-4" />
+          <a
+            href={siteConfig.reachUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 transition hover:text-foreground"
+          >
+            Reach
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+          <Dot className="h-4 w-4" />
           <p>
             Copyright {new Date().getFullYear()} {siteConfig.legalName}.
           </p>

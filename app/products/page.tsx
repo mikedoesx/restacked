@@ -1,48 +1,24 @@
 import {
   ArrowRight,
   BriefcaseBusiness,
-  ChartNoAxesCombined,
-  ShieldCheck,
-  Waypoints,
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { siteConfig } from "@/lib/site";
+import { featuredProducts } from "@/lib/featured-products";
 
 export const metadata: Metadata = {
-  title: "Products | Varentus and Upcoming Restacked Tools",
+  title: "Products | Varentus, Reach, and Upcoming Restacked Tools",
   description:
-    "Explore Restacked products including Varentus, our AI governance platform for SMB leaders, MSPs, and compliance teams.",
+    "Explore Restacked products including Varentus and Reach, plus upcoming tools for AI governance and social lead generation teams.",
   alternates: { canonical: "/products" },
   openGraph: {
-    title: "Restacked Products | Varentus and Upcoming Launches",
+    title: "Restacked Products | Varentus, Reach, and Upcoming Launches",
     description:
       "Productized software from Restacked with a focus on practical AI and business workflow acceleration.",
     url: "/products",
   },
 };
-
-const varentusFeatures = [
-  {
-    title: "AI Tool Discovery",
-    description:
-      "Surface which AI tools employees use across the business so leadership can understand exposure before incidents happen.",
-    icon: Waypoints,
-  },
-  {
-    title: "Policy Builder & Attestation",
-    description:
-      "Create enforceable AI usage policies, collect acknowledgments, and track who has reviewed the rules.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Compliance Snapshot",
-    description:
-      "Generate a single-page governance view with exportable reporting mapped to emerging AI regulations.",
-    icon: ChartNoAxesCombined,
-  },
-];
 
 const pricingTiers = [
   {
@@ -120,65 +96,73 @@ export default function ProductsPage() {
         </h1>
         <p className="mt-6 max-w-3xl text-lg text-muted-foreground">
           Alongside our bespoke software services, Restacked builds products
-          that solve focused operational problems. Varentus is our featured
-          platform for AI governance and compliance readiness.
+          that solve focused operational problems. Varentus and Reach are our
+          featured platforms for AI governance and social lead generation
+          workflows.
         </p>
       </section>
 
       <section className="section-shell pb-14 md:pb-20">
-        <article className="surface-card overflow-hidden border-primary/30 bg-primary/10">
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-3 py-1 text-xs font-semibold text-primary">
-                <ShieldCheck className="h-3.5 w-3.5" />
-                Featured Product
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold">Varentus</h2>
-              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-                Varentus helps SMB leaders see every AI tool their team uses,
-                set the rules, and prove compliance. It packages discovery,
-                policy creation, approved-tool governance, attestation, and
-                reporting into a self-serve setup that can be live in under an
-                hour.
-              </p>
-            </div>
-            <a
-              href={siteConfig.varentusUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="cta-button"
+        <div className="grid gap-4 lg:grid-cols-2">
+          {featuredProducts.map((product) => (
+            <article
+              key={product.slug}
+              className="surface-card overflow-hidden border-primary/30 bg-primary/10"
             >
-              Visit Varentus
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-          </div>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {varentusFeatures.map((feature) => (
-              <div
-                key={feature.title}
-                className="rounded-xl border border-border bg-card p-4"
-              >
-                <feature.icon className="h-5 w-5 text-primary" />
-                <h3 className="mt-3 text-base font-semibold">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {feature.description}
-                </p>
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <p className="inline-flex rounded-full border border-primary/30 bg-background/70 px-3 py-1 text-xs font-semibold text-primary">
+                    Featured Product
+                  </p>
+                  <h2 className="mt-4 text-3xl font-semibold">{product.name}</h2>
+                  <p className="mt-2 inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                    {product.statusLabel}
+                  </p>
+                  <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+                    {product.summary}
+                  </p>
+                </div>
+                <a
+                  href={product.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cta-button"
+                >
+                  {product.ctaLabel}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
               </div>
-            ))}
-          </div>
-        </article>
+
+              <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+                {product.bullets.map((bullet) => (
+                  <li key={bullet} className="flex items-start gap-2">
+                    <span
+                      className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary"
+                      aria-hidden
+                    />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+              {product.roadmapNote ? (
+                <p className="mt-4 text-xs font-medium text-muted-foreground">
+                  {product.roadmapNote}
+                </p>
+              ) : null}
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="section-shell pb-14 md:pb-20">
         <div className="mb-8">
-          <h2 className="text-3xl font-semibold md:text-4xl">Pricing model</h2>
+          <h2 className="text-3xl font-semibold md:text-4xl">
+            Varentus pricing model
+          </h2>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Varentus uses three paid plans built around the maturity of your AI
-            governance program, from getting started quickly to operating with
-            deeper control and support.
+            Varentus currently uses three paid plans built around the maturity
+            of your AI governance program, from getting started quickly to
+            operating with deeper control and support.
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
