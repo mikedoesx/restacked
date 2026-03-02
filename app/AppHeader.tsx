@@ -1,18 +1,14 @@
 "use client";
 
-import { MenuIcon, XIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
-import { useState } from "react";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { navItems } from "@/lib/site";
 
 export function AppHeader() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(12,11,25,0.94),rgba(10,10,22,0.9))]">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
@@ -35,71 +31,27 @@ export function AppHeader() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
-          <NavLinks />
+        <nav className="mx-2 flex-1 overflow-x-auto" aria-label="Primary">
+          <div className="flex w-max min-w-full items-center justify-center gap-1">
+            <NavLinks />
+          </div>
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="flex shrink-0 items-center gap-2 md:gap-3">
           <ThemeToggle />
           <Link
             href="/contact"
-            className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[0_10px_30px_rgba(88,68,214,0.18)] transition hover:opacity-90 dark:shadow-[0_14px_36px_rgba(124,97,255,0.28)]"
+            className="hidden rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[0_10px_30px_rgba(88,68,214,0.18)] transition hover:opacity-90 dark:shadow-[0_14px_36px_rgba(124,97,255,0.28)] sm:inline-flex"
           >
             Start Project
           </Link>
         </div>
-
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
-          <button
-            type="button"
-            aria-expanded={menuOpen}
-            aria-controls="mobile-nav"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMenuOpen((open) => !open)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground dark:border-white/10 dark:bg-white/5"
-          >
-            {menuOpen ? (
-              <XIcon className="h-4 w-4" />
-            ) : (
-              <MenuIcon className="h-4 w-4" />
-            )}
-          </button>
-        </div>
-      </div>
-
-      <div
-        id="mobile-nav"
-        className={clsx(
-          "overflow-hidden border-t border-border/60 transition-all md:hidden",
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
-        )}
-      >
-        <nav
-          className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-4 py-3"
-          aria-label="Mobile primary"
-        >
-          <NavLinks mobile onNavigate={() => setMenuOpen(false)} />
-          <Link
-            href="/contact"
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 rounded-lg bg-primary px-4 py-2 text-center text-sm font-semibold text-primary-foreground"
-          >
-            Start Project
-          </Link>
-        </nav>
       </div>
     </header>
   );
 }
 
-function NavLinks({
-  mobile = false,
-  onNavigate,
-}: {
-  mobile?: boolean;
-  onNavigate?: () => void;
-}) {
+function NavLinks() {
   const pathname = usePathname();
 
   return (
@@ -111,10 +63,8 @@ function NavLinks({
           <Link
             key={item.href}
             href={item.href}
-            onClick={onNavigate}
             className={clsx(
-              "rounded-lg px-3 py-2 text-sm font-medium transition",
-              mobile && "text-base",
+              "rounded-lg px-2.5 py-2 text-xs font-medium transition sm:px-3 sm:text-sm",
               active
                 ? "bg-primary/10 text-primary dark:bg-primary/15"
                 : "text-muted-foreground hover:bg-muted hover:text-foreground dark:hover:bg-white/5",
